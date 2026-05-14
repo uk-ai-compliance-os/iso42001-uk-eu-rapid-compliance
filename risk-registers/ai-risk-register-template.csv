@@ -1,0 +1,11 @@
+Risk_ID,ISO_42001_Clause,EU_AI_Act_Article,Risk_Category,Risk_Description,Likelihood,Impact,Risk_Score,Current_Controls,Control_Gap,Target_Treatment,Owner,Review_Date,Status
+R001,4.1,N/A,Strategic,AI strategy misaligned with organizational objectives,Medium,High,12,Board AI oversight charter,Partial,Define AI governance board with quarterly mandate,CEO,2026-06-15,Open
+R002,6.2,Article 9,Operational,Undocumented AI risk assessment methodology,High,High,16,Ad-hoc risk reviews,Yes,Implement structured AIA process with bias testing,Compliance Lead,2026-05-30,Open
+R003,8.2,Article 10,Data,Training data contains unmitigated bias against protected characteristics,High,Critical,20,Data quality checks,Yes,Implement demographic parity testing + synthetic data protocols,ML Lead,2026-05-25,Open
+R004,8.3,Article 11,Technical,Incomplete technical documentation for high-risk AI system,High,High,16,Basic model documentation,Yes,Build technical file with model cards + validation reports,CTO,2026-06-01,Open
+R005,8.5,Article 14,Operational,Human oversight procedures undefined for automated decision-making,High,Critical,20,HITL mentioned in policy,Yes,Define HITL workflow with escalation paths and override authority,Compliance Lead,2026-05-28,Open
+R006,8.6,Article 15,Technical,No continuous monitoring for model drift or performance degradation,Medium,High,12,Manual monthly reviews,Partial,Automated drift detection (PSI/CSI) with threshold alerting,ML Lead,2026-06-10,Open
+R007,9.2,Article 17,Compliance,No internal audit capability for AI management system,Medium,High,12,General internal audits,Partial,Train 2 internal auditors on ISO 42001 + AI-specific controls,Compliance Lead,2026-06-30,Open
+R008,8.4,N/A,Vendor,Third-party AI API lacks audit rights in contract,Medium,Medium,9,Standard vendor contracts,Partial,Amend all AI vendor contracts to include audit + data processing terms,Legal,2026-06-15,Open
+R009,8.5,Article 52,Transparency,End-users not informed of AI interaction,High,Medium,12,Privacy policy mentions AI,Yes,Implement UI disclosures + user notification templates,Product Lead,2026-05-30,Open
+R010,7.5,N/A,Documentation,Document control procedures do not cover AI-specific records,Medium,Medium,9,ISO 27001 document control,Partial,Extend document control to AIMS records with 6-year retention,Compliance Lead,2026-06-05,Open
