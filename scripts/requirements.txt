@@ -1,0 +1,2 @@
+# No external dependencies required for basic CLI
+# Python 3.8+ standard library only
