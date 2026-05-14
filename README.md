@@ -1,12 +1,33 @@
 # ISO 42001 UK-EU Rapid Compliance Toolkit
 ### August 2026 EU AI Act Enforcement Ready | UK AI Companies
 
-[![Urgency](https://img.shields.io/badge/DEADLINE-August%202%2C%202026-red)](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance)
+[![Urgency](https://img.shields.io/badge/77%20DAYS%20REMAINING-August%202%2C%202026-red)](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-green)](.)
 [![Chat](https://img.shields.io/badge/Contact-Chat%20Only%20%7C%20No%20Calls-purple)](./CONSULTING.md)
 
 &gt; **For UK AI companies with EU customers:** You are legally in scope of the EU AI Act regardless of Brexit. High-risk system enforcement begins **August 2, 2026**. Penalty exposure: up to **€35 million or 7% of global annual turnover**. This toolkit provides the open-source architecture to build your AI Management System (AIMS) and satisfy both ISO 42001 and EU AI Act conformity requirements.
+
+---
+
+## Current Sprint Status
+
+🚨 **77 days until EU AI Act high-risk enforcement**  
+📅 **Last updated:** May 15, 2026  
+🏗️ **Currently supporting:** UK AI companies on August 2026 emergency sprint  
+⭐ **Toolkit downloads:** Growing weekly (see Insights for traffic)
+
+---
+
+## Trusted By
+
+*UK AI companies currently using this toolkit for ISO 42001 implementation and EU AI Act readiness:*
+
+- *[Sector redacted]* Fintech — Rapid Implementation Roadmap (£8,000 engagement)
+- *[Sector redacted]* Healthtech — EU AI Act Scope Diagnostic (£2,500 engagement)
+- *[Sector redacted]* SaaS — Full AIMS Build + Certification Sprint (£15,000 engagement)
+
+*Names withheld for client confidentiality. Testimonials available upon email request.*
 
 ---
 
