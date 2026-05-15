@@ -72,7 +72,8 @@ All fees are flat. No hourly billing. No scope creep.
 
 ## Contact
 
-📧 **compliance.architect@protonmail.com**
+📧 **compliance.architect@protonmail.com**  
+✉️ **Or copy-paste:** compliance.architect@protonmail.com
 
 **Response time:** &lt; 4 hours during UK business hours (09:00–18:00 BST)  
 **Typical proposal turnaround:** 24 hours from completed diagnostic
