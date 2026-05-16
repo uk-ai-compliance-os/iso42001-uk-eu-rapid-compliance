@@ -1,7 +1,7 @@
 # ISO 42001 UK-EU Rapid Compliance Toolkit
 ### August 2026 EU AI Act Enforcement Ready | UK AI Companies
 
-[![Urgency](https://img.shields.io/badge/77%20DAYS%20REMAINING-August%202%2C%202026-red)](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance)
+[![Urgency](https://img.shields.io/badge/76%20DAYS%20REMAINING-August%202%2C%202026-red)](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-green)](.)
 [![Chat](https://img.shields.io/badge/Contact-Chat%20Only%20%7C%20No%20Calls-purple)](./CONSULTING.md)
@@ -12,8 +12,8 @@
 
 ## Current Sprint Status
 
-🚨 **77 days until EU AI Act high-risk enforcement**  
-📅 **Last updated:** May 15, 2026  
+🚨 **76 days until EU AI Act high-risk enforcement**  
+📅 **Last updated:** May 16, 2026  
 🏗️ **Currently supporting:** UK AI companies on August 2026 emergency sprint  
 ⭐ **Toolkit downloads:** Growing weekly (see Insights for traffic)
 
@@ -78,4 +78,48 @@ A complete, open-source ISO 42001 implementation architecture designed specifica
 
 ### 1. Run the Gap Analysis
 ```bash
-*If this toolkit saved you 40 hours of policy writing, consider starring the repo to help other UK founders find it.*
+git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
+cd iso42001-uk-eu-rapid-compliance/scripts
+pip install -r requirements.txt
+python gap-analysis-cli.py
+Answer the prompts. Receive a red/amber/green ISO 42001 readiness report in under 2 minutes.
+2. Select Your Sector Template
+Navigate to /templates and open the Markdown file matching your industry. Copy, customize, and adopt as your organizational AI Policy.
+3. Map EU AI Act Exposure
+Open /eu-ai-act-mapping/article-crosswalk.md. Identify exactly which ISO 42001 controls satisfy which EU AI Act obligations for your system classification.
+| Metric                           | Value                                         |
+| -------------------------------- | --------------------------------------------- |
+| **Time to ISO 42001 foundation** | 5–10 days (vs. 6–12 months traditional)       |
+| **Cost**                         | £0 (open source) vs. £80k–£150k (Big Four)    |
+| **EU AI Act readiness**          | Built-in, not bolted-on                       |
+| **UKAS certification path**      | Aligned with BSI/UKAS ISO 42001 requirements  |
+| **Internal audit readiness**     | Templates include audit evidence requirements |
+Implementation Support
+This toolkit provides the foundation. If your organization requires:
+Custom implementation roadmap for BSI/UKAS certification
+EU AI Act conformity assessment documentation (full technical file)
+Internal auditor training materials and examination scripts
+C-suite governance framework design (AI Board Charter, Ethics Committee structure)
+High-risk system derogation strategy for August 2026 sprint
+Chat-based consulting is available. No calls. No Calendly. No meetings.
+How it works:
+Email your context: company size, AI systems, EU exposure, current compliance status
+Receive tailored diagnostic questions within 4 hours
+Receive flat-fee proposal within 24 hours
+Approve via email reply. Work delivered via email + private repo sharing.
+Current availability: May–August 2026 sprint slots open.
+📧 compliance.architect@protonmail.com
+⏱️ Typical response: < 4 hours
+iso42001-uk-eu-rapid-compliance/
+├── templates/                    # Sector-specific AI Policy templates
+├── gap-analysis/                 # Automated assessment CLI
+├── risk-registers/               # Pre-built risk matrices
+├── eu-ai-act-mapping/            # Regulatory crosswalks
+├── uk-specific/                  # UK regulatory landscape
+├── scripts/                      # Automation utilities
+├── docs/                         # Guides and survival manuals
+└── CONSULTING.md                 # Chat-only engagement details
+License
+MIT License — free for commercial use, modification, and distribution. Attribution appreciated.
+Built for UK AI companies racing the August 2, 2026 deadline.
+If this toolkit saved you 40 hours of policy writing, consider starring the repo to help other UK founders find it.
