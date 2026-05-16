@@ -51,6 +51,8 @@ This toolkit closes those gaps in days, not months.
 | ISO 42001 Rapid Roadmap                | £8,000     | 10 days  |
 | Full AIMS Build + Certification Sprint | £15,000    | 30 days  |
 | August 2026 Emergency Sprint           | £20,000    | 14 days  |
+
+
 No calls. No Calendly. No meetings.
 📧 compliance.architect@protonmail.com
 ⏱️ Response: < 4 hours
