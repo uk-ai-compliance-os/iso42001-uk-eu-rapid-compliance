@@ -78,7 +78,4 @@ A complete, open-source ISO 42001 implementation architecture designed specifica
 
 ### 1. Run the Gap Analysis
 ```bash
-git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
-cd iso42001-uk-eu-rapid-compliance/scripts
-pip install -r requirements.txt
-python gap-analysis-cli.py
+*If this toolkit saved you 40 hours of policy writing, consider starring the repo to help other UK founders find it.*
