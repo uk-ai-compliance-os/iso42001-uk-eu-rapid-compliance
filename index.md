@@ -46,10 +46,6 @@ Most UK AI companies currently have:
 This toolkit closes those gaps in days, not months.
 
 ---
-
-## Quick Start
-
-```bash
 git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
 cd iso42001-uk-eu-rapid-compliance/scripts
 python gap-analysis-cli.py
@@ -64,3 +60,10 @@ No calls. No Calendly. No meetings.
 📧 compliance.architect@protonmail.com
 ⏱️ Response: < 4 hours
 Built for UK AI companies racing the August 2, 2026 deadline. MIT License.
+---
+
+⭐ **If this toolkit saved you time,** [star the repo](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance) to help other UK founders find it before the August 2 deadline.
+
+## Quick Start
+
+```bash
