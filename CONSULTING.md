@@ -79,5 +79,8 @@ All fees are flat. No hourly billing. No scope creep.
 **Typical proposal turnaround:** 24 hours from completed diagnostic
 
 ---
+---
+
+⭐ **Found this toolkit useful?** Star the repo to help other UK AI founders discover it before August 2: [github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance)
 
 *If you are a UK AI company with EU exposure and the August 2, 2026 deadline is keeping you awake, email now. The toolkit is free. The architecture is not.*
