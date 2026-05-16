@@ -44,12 +44,7 @@ Most UK AI companies currently have:
 - No technical documentation for conformity assessment
 
 This toolkit closes those gaps in days, not months.
-
 ---
-git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
-cd iso42001-uk-eu-rapid-compliance/scripts
-python gap-analysis-cli.py
-Answer 10 prompts. Receive a red/amber/green readiness report in 2 minutes.
 | Service                                | Investment | Timeline |
 | -------------------------------------- | ---------- | -------- |
 | EU AI Act Scope Diagnostic             | £2,500     | 48 hours |
@@ -67,3 +62,7 @@ Built for UK AI companies racing the August 2, 2026 deadline. MIT License.
 ## Quick Start
 
 ```bash
+git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
+cd iso42001-uk-eu-rapid-compliance/scripts
+python gap-analysis-cli.py
+Answer 10 prompts. Receive a red/amber/green readiness report in 2 minutes.
