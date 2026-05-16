@@ -1,9 +1,3 @@
----
-layout: default
-title: "ISO 42001 UK Compliance Toolkit | EU AI Act August 2026 Ready"
-description: "Free open-source ISO 42001 implementation toolkit for UK AI companies. EU AI Act compliance templates, gap analysis CLI, and certification-ready documentation. August 2026 deadline."
----
-
 # ISO 42001 UK-EU Rapid Compliance Toolkit
 
 **Open-source AI Management System (AIMS) architecture for UK AI companies facing the August 2, 2026 EU AI Act enforcement deadline.**
@@ -39,7 +33,7 @@ description: "Free open-source ISO 42001 implementation toolkit for UK AI compan
 
 ---
 
-## The August 2026 Problem (77 Days Remaining)
+## The August 2026 Problem (76 Days Remaining)
 
 The EU AI Act applies extraterritorially to UK AI providers and deployers with EU exposure. High-risk system enforcement begins **August 2, 2026**. Penalties: up to **€35 million or 7% of global turnover**.
 
