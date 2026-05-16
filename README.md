@@ -10,12 +10,16 @@
 
 ---
 
+⭐ **If this toolkit saves you 40 hours of policy writing, please star the repo to help other UK founders find it.**
+
+---
+
 ## Current Sprint Status
 
 🚨 **76 days until EU AI Act high-risk enforcement**  
 📅 **Last updated:** May 16, 2026  
 🏗️ **Currently supporting:** UK AI companies on August 2026 emergency sprint  
-⭐ **Toolkit downloads:** Growing weekly (see Insights for traffic)
+📥 **Toolkit downloads:** 228 clones, 96 unique users (see Insights for traffic)
 
 ---
 
@@ -118,8 +122,6 @@ iso42001-uk-eu-rapid-compliance/
 ├── uk-specific/                  # UK regulatory landscape
 ├── scripts/                      # Automation utilities
 ├── docs/                         # Guides and survival manuals
-└── CONSULTING.md                 # Chat-only engagement details
-License
+└── CONSULTING.md                 # Chat-only engagement detailsLicense
 MIT License — free for commercial use, modification, and distribution. Attribution appreciated.
 Built for UK AI companies racing the August 2, 2026 deadline.
-If this toolkit saved you 40 hours of policy writing, consider starring the repo to help other UK founders find it.
