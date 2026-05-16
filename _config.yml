@@ -4,23 +4,8 @@ author: "ISO 42001 Implementation Architect"
 email: "compliance.architect@protonmail.com"
 baseurl: "/iso42001-uk-eu-rapid-compliance"
 url: "https://uk-ai-compliance-os.github.io"
-
-# SEO & Social
 lang: en-GB
 timezone: Europe/London
-
-# Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: pretty
-
-# Plugins (GitHub Pages supported)
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
-
-# Exclude files from site
-exclude:
-  - README.md.bak
-  - "*.py[co]"
-  - "__pycache__"
