@@ -92,10 +92,6 @@ cd iso42001-uk-eu-rapid-compliance/scripts
 pip install -r requirements.txt
 python gap-analysis-cli.py
 
-
-**Rationale:** ` ```bash ` triggers syntax highlighting = professional appearance.
-
-
 ---
 
 ### 13. **Missing: "Last Updated" Dynamic Element**
@@ -122,4 +118,4 @@ python gap-analysis-cli.py
 | EU AI Act penalty exposure: up to €35m | Structured conformity assessment path |
 | No internal audit capability | Audit-ready templates with evidence requirements |
 
-**Bottom line:** Certification-ready AI governance for a fraction of traditional cost, delivered before August 2, 2026.
+** Certification-ready AI governance for a fraction of traditional cost, delivered before August 2, 2026.
