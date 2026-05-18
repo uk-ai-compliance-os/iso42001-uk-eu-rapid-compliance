@@ -1,137 +1,125 @@
-# ISO 42001 UK-EU Rapid Compliance Toolkit
-### August 2026 EU AI Act Enforcement Ready | UK AI Companies
-
-[![Urgency](https://img.shields.io/badge/76%20DAYS%20REMAINING-August%202%2C%202026-red)](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-green)](.)
-[![Chat](https://img.shields.io/badge/Contact-Chat%20Only%20%7C%20No%20Calls-purple)](./CONSULTING.md)
-
-&gt; **For UK AI companies with EU customers:** You are legally in scope of the EU AI Act regardless of Brexit. High-risk system enforcement begins **August 2, 2026**. Penalty exposure: up to **€35 million or 7% of global annual turnover**. This toolkit provides the open-source architecture to build your AI Management System (AIMS) and satisfy both ISO 42001 and EU AI Act conformity requirements.
-
----
-
-⭐ **If this toolkit saves you 40 hours of policy writing, please star the repo to help other UK founders find it.**
-
----
-
-## Current Sprint Status
-
-🚨 **75 days until EU AI Act high-risk enforcement**  
-📅 **Last updated:** May 18, 2026  
-🏗️ **Currently supporting:** UK AI companies on August 2026 emergency sprint  
-📥 **Toolkit downloads:** 228 clones, 96 unique users (see Insights for traffic)
-
----
+# ISO 42001 UK-EU Rapid Compliance Toolkit — EU AI Act August 2026 Ready
 
 ## Trusted By
 
-*UK AI companies currently using this toolkit for ISO 42001 implementation and EU AI Act readiness:*
+This toolkit is currently being evaluated by UK AI companies across fintech, healthtech, and legaltech sectors.
 
-- *[Sector redacted]* Fintech — Rapid Implementation Roadmap (£8,000 engagement)
-- *[Sector redacted]* Healthtech — EU AI Act Scope Diagnostic (£2,500 engagement)
-- *[Sector redacted]* SaaS — Full AIMS Build + Certification Sprint (£15,000 engagement)
+**First 3 sprint engagements:** Founding Client pricing (25% below standard rates) in exchange for a brief case study upon completion.
 
-*Names withheld for client confidentiality. Testimonials available upon email request.*
+📧 Email for current availability and Founding Client terms.
 
----
+> *"I chose to open-source our internal compliance architecture because every UK AI company deserves a fighting chance before August 2. If you need hands-on implementation, I'm selective about engagements — but currently accepting Founding Clients."*
 
-## The August 2026 Problem
+## ⚠️ Status: August 2026 Sprint Open
+🚨 75 days until EU AI Act high-risk enforcement  
+📅 Last updated: May 18, 2026  
+📥 228 clones | 96 unique toolkit users
 
-The EU AI Act's extraterritorial reach applies to UK providers and deployers whose AI systems affect EU citizens or markets. If your AI is used in the EU — even by a third party — you must comply.
-
-**Key deadlines:**
-- **August 2, 2026:** Prohibition of unacceptable-risk AI practices + obligations for high-risk systems
-- **Ongoing:** Transparency requirements for general-purpose AI models
-
-Most UK AI companies have:
-- ❌ No documented AI policy
-- ❌ No risk classification against EU AI Act Annex III
-- ❌ No ISO 42001-aligned governance structure
-- ❌ No technical documentation for conformity assessment
-
-This toolkit closes those gaps in days, not months.
-
----
-
-## What This Toolkit Provides
-
-A complete, open-source ISO 42001 implementation architecture designed specifically for UK AI companies navigating EU regulatory pressure:
-
-| Component | Purpose |
-|-----------|---------|
-| `/templates` | Sector-specific AI Policy templates (Fintech, Healthtech, SaaS, Legaltech, Insurtech) |
-| `/gap-analysis` | Python CLI tool: automated ISO 42001 / EU AI Act gap assessment |
-| `/risk-registers` | Pre-built risk matrices mapped to ISO 42001 Annex A and EU AI Act Annex III |
-| `/eu-ai-act-mapping` | Crosswalk: ISO 42001 clauses → EU AI Act articles |
-| `/uk-specific` | ICO AI auditing framework + UK AI White Paper alignment |
-| `/scripts` | Automation for documentation generation and control tracking |
-
----
+## ⭐ Star This Repo
+UK AI founders: Starring helps other compliance teams find this before August 2.
 
 ## Who This Is For
 
-- **UK AI SaaS companies** with EU enterprise customers
+- **UK AI SaaS** with EU enterprise customers
 - **UK Fintech/Insurtech** using AI for credit scoring, fraud detection, or underwriting
 - **UK Healthtech** with clinical decision support or diagnostic AI
 - **UK Legaltech** deploying automated decision-making systems
 - **CTOs, Compliance Leads, and Founders** who need certification-ready documentation without a £100k Big Four engagement
 
+  ## Select Your Sector Template
+
+| Sector | Template | Status |
+|--------|----------|--------|
+| Fintech | [`/templates/ai-policy-fintech.md`](./templates/ai-policy-fintech.md) | ✅ Complete |
+| Healthtech | [`/templates/ai-policy-healthtech.md`](./templates/ai-policy-healthtech.md) | ✅ Complete |
+| SaaS | [`/templates/ai-policy-saas.md`](./templates/ai-policy-saas.md) | ✅ Complete |
+| Legaltech | [`/templates/ai-policy-legaltech.md`](./templates/ai-policy-legaltech.md) | 🚧 Draft |
+| Insurtech | [`/templates/ai-policy-insurtech.md`](./templates/ai-policy-insurtech.md) | 🚧 Draft |
+
+> Need a sector not listed? Email me — I'll prioritize it for the open-source toolkit.
+
 ---
-2. Select Your Sector Template
 
-Navigate to /templates and open the Markdown file matching your industry. Copy, customize, and adopt as your organizational AI Policy.
-
-3. Map EU AI Act Exposure
-
-Open /eu-ai-act-mapping/article-crosswalk.md. Identify exactly which ISO 42001 controls satisfy which EU AI Act obligations for your system classification.
-| Metric                           | Value                                         |
-| -------------------------------- | --------------------------------------------- |
-| **Time to ISO 42001 foundation** | 5–10 days (vs. 6–12 months traditional)       |
-| **Cost**                         | £0 (open source) vs. £80k–£150k (Big Four)    |
-| **EU AI Act readiness**          | Built-in, not bolted-on                       |
-| **UKAS certification path**      | Aligned with BSI/UKAS ISO 42001 requirements  |
-| **Internal audit readiness**     | Templates include audit evidence requirements |
-
-Implementation Support
+## 💼 Need Implementation Architecture?
 
 This toolkit provides the foundation. If your organization requires:
-Custom implementation roadmap for BSI/UKAS certification
-EU AI Act conformity assessment documentation (full technical file)
-Internal auditor training materials and examination scripts
-C-suite governance framework design (AI Board Charter, Ethics Committee structure)
-High-risk system derogation strategy for August 2026 sprint
-Chat-based consulting is available. No calls. No Calendly. No meetings.
 
-How it works:
+| Service | What's Included | Investment | Turnaround |
+|---------|----------------|------------|------------|
+| **EU AI Act Scope Diagnostic** | System classification, risk tiering, gap summary | £2,500 | 48 hours |
+| **ISO 42001 Rapid Roadmap** | Custom implementation plan, BSI/UKAS alignment, sprint timeline | £8,000 | 10 days |
+| **Full AIMS Build + Cert Sprint** | Complete documentation, internal audit pack, certification prep | £15,000 | 30 days |
 
-Email your context: company size, AI systems, EU exposure, current compliance status
-Receive tailored diagnostic questions within 4 hours
-Receive flat-fee proposal within 24 hours
-Approve via email reply. Work delivered via email + private repo sharing.
-Current availability: May–August 2026 sprint slots open.
-📧 compliance.architect@protonmail.com
-⏱️ Typical response: < 4 hours
+**How it works:** Email → Diagnostic questions (4h) → Flat-fee proposal (24h) → Approve via reply → Delivered via email + private repo.
 
-iso42001-uk-eu-rapid-compliance/
-├── templates/                    # Sector-specific AI Policy templates
-├── gap-analysis/                 # Automated assessment CLI
-├── risk-registers/               # Pre-built risk matrices
-├── eu-ai-act-mapping/            # Regulatory crosswalks
-├── uk-specific/                  # UK regulatory landscape
-├── scripts/                      # Automation utilities
-├── docs/                         # Guides and survival manuals
-└── CONSULTING.md                 # Chat-only engagement detailsLicense
+📧 **compliance.architect@protonmail.com**  
+⏱️ **Typical response: < 4 hours**  
+🚫 **No calls. No Calendly. No meetings. Chat-based only.**
 
-MIT License — free for commercial use, modification, and distribution. Attribution appreciated.
-Built for UK AI companies racing the August 2, 2026 deadline.
+**Current availability:** May–August 2026 sprint slots open.
 
+## 🗣️ Regulatory Pulse & Community
+
+Weekly updates on UK/EU AI regulation changes, deadline shifts, and certification body updates.
+
+→ [View Discussions](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance/discussions)
+
+**Recent topics:**
+- [May 18] EU AI Act high-risk system checklist — 60 days out
+- [May 11] BSI certification body update: new UKAS requirements
+
+  ## 📌 Recognition
+
+This toolkit's gap analysis methodology has been referenced in:
+- [Add if you get any mentions, even in newsletters or LinkedIn posts]
+
+  ## Repository Structure
+  iso42001-uk-eu-rapid-compliance/
+├── templates/           # Sector-specific AI Policy templates
+├── gap-analysis/        # Automated assessment CLI
+├── risk-registers/      # Pre-built risk matrices
+├── eu-ai-act-mapping/   # Regulatory crosswalks
+├── uk-specific/         # UK regulatory landscape
+├── scripts/             # Automation utilities
+├── docs/                # Guides and survival manuals
+└── CONSULTING.md        # Chat-only engagement details
 
 ## Quick Start (5 Minutes)
 
-### 1. Run the Gap Analysis
-```bash
+``bash
 git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
 cd iso42001-uk-eu-rapid-compliance/scripts
 pip install -r requirements.txt
 python gap-analysis-cli.py
-Answer the prompts. Receive a red/amber/green ISO 42001 readiness report in under 2 minutes.
+
+
+**Rationale:** ` ```bash ` triggers syntax highlighting = professional appearance.
+
+
+---
+
+### 13. **Missing: "Last Updated" Dynamic Element**
+
+**Problem:** "Last updated: May 18, 2026" is static. It will look stale in 2 weeks.
+
+**Correction:** Update this manually every 3-4 days, or use a GitHub Action to auto-update it. For now, commit to updating it every Monday.
+
+---
+
+### 14. **Critical Missing Element: A "CEO Summary" Section**
+
+**Problem:** CTOs and Compliance Leads may forward your repo to the CEO or Board. You need a section they can screenshot in 30 seconds.
+
+**Correction:** Add after "What This Toolkit Provides":
+
+``
+## 📊 For Leadership: 30-Second Business Case
+
+| Without This Toolkit | With This Toolkit |
+|----------------------|-------------------|
+| £80k–£150k Big Four engagement | £0 open-source foundation + £8k–£15k targeted implementation |
+| 6–12 months to ISO 42001 readiness | 5–10 days to documented foundation |
+| EU AI Act penalty exposure: up to €35m | Structured conformity assessment path |
+| No internal audit capability | Audit-ready templates with evidence requirements |
+
+**Bottom line:** Certification-ready AI governance for a fraction of traditional cost, delivered before August 2, 2026.
