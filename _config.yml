@@ -1,11 +1,23 @@
-title: "UK-EU AI Compliance OS"
-description: "Open-source ISO 42001 implementation toolkit and EU AI Act compliance templates for UK AI companies. August 2026 deadline ready."
-author: "ISO 42001 Implementation Architect"
-email: "compliance.architect@protonmail.com"
-baseurl: "/iso42001-uk-eu-rapid-compliance"
-url: "https://uk-ai-compliance-os.github.io"
-lang: en-GB
-timezone: Europe/London
-markdown: kramdown
-highlighter: rouge
-permalink: pretty
+title: "UK Legaltech AI Governance"
+description: "Production-grade AI governance policy for England & Wales legal technology. SRA-aligned, UK GDPR, EU AI Act, ISO 42001."
+author: "compliance.architect@protonmail.com"
+email: compliance.architect@protonmail.com
+baseurl: ""
+url: "https://yourusername.github.io"
+theme: minima
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+social_links:
+  email: compliance.architect@protonmail.com
+
+show_excerpts: true
