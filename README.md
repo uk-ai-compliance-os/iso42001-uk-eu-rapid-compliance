@@ -77,16 +77,6 @@ A complete, open-source ISO 42001 implementation architecture designed specifica
 - **CTOs, Compliance Leads, and Founders** who need certification-ready documentation without a £100k Big Four engagement
 
 ---
-
-## Quick Start (5 Minutes)
-
-### 1. Run the Gap Analysis
-```bash
-git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
-cd iso42001-uk-eu-rapid-compliance/scripts
-pip install -r requirements.txt
-python gap-analysis-cli.py
-Answer the prompts. Receive a red/amber/green ISO 42001 readiness report in under 2 minutes.
 2. Select Your Sector Template
 Navigate to /templates and open the Markdown file matching your industry. Copy, customize, and adopt as your organizational AI Policy.
 3. Map EU AI Act Exposure
@@ -98,6 +88,7 @@ Open /eu-ai-act-mapping/article-crosswalk.md. Identify exactly which ISO 42001 c
 | **EU AI Act readiness**          | Built-in, not bolted-on                       |
 | **UKAS certification path**      | Aligned with BSI/UKAS ISO 42001 requirements  |
 | **Internal audit readiness**     | Templates include audit evidence requirements |
+
 Implementation Support
 This toolkit provides the foundation. If your organization requires:
 Custom implementation roadmap for BSI/UKAS certification
@@ -106,6 +97,7 @@ Internal auditor training materials and examination scripts
 C-suite governance framework design (AI Board Charter, Ethics Committee structure)
 High-risk system derogation strategy for August 2026 sprint
 Chat-based consulting is available. No calls. No Calendly. No meetings.
+
 How it works:
 Email your context: company size, AI systems, EU exposure, current compliance status
 Receive tailored diagnostic questions within 4 hours
@@ -114,6 +106,7 @@ Approve via email reply. Work delivered via email + private repo sharing.
 Current availability: May–August 2026 sprint slots open.
 📧 compliance.architect@protonmail.com
 ⏱️ Typical response: < 4 hours
+
 iso42001-uk-eu-rapid-compliance/
 ├── templates/                    # Sector-specific AI Policy templates
 ├── gap-analysis/                 # Automated assessment CLI
@@ -123,5 +116,17 @@ iso42001-uk-eu-rapid-compliance/
 ├── scripts/                      # Automation utilities
 ├── docs/                         # Guides and survival manuals
 └── CONSULTING.md                 # Chat-only engagement detailsLicense
+
 MIT License — free for commercial use, modification, and distribution. Attribution appreciated.
 Built for UK AI companies racing the August 2, 2026 deadline.
+
+
+## Quick Start (5 Minutes)
+
+### 1. Run the Gap Analysis
+```bash
+git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
+cd iso42001-uk-eu-rapid-compliance/scripts
+pip install -r requirements.txt
+python gap-analysis-cli.py
+Answer the prompts. Receive a red/amber/green ISO 42001 readiness report in under 2 minutes.
