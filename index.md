@@ -33,7 +33,7 @@
 
 ---
 
-## The August 2026 Problem (76 Days Remaining)
+## The August 2026 Problem (75 Days Remaining)
 
 The EU AI Act applies extraterritorially to UK AI providers and deployers with EU exposure. High-risk system enforcement begins **August 2, 2026**. Penalties: up to **€35 million or 7% of global turnover**.
 
@@ -59,7 +59,8 @@ No calls. No Calendly. No meetings.
 Built for UK AI companies racing the August 2, 2026 deadline. MIT License.
 ---
 
-⭐ **If this toolkit saved you time,** [star the repo](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance) to help other UK founders find it before the August 2 deadline.
+⭐ **If this toolkit saved you time,
+** [star the repo](https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance) to help other UK founders find it before the August 2 deadline.
 
 ## Quick Start
 
