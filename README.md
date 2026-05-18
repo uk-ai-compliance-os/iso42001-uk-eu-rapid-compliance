@@ -16,7 +16,7 @@
 
 ## Current Sprint Status
 
-🚨 **76 days until EU AI Act high-risk enforcement**  
+🚨 **75 days until EU AI Act high-risk enforcement**  
 📅 **Last updated:** May 16, 2026  
 🏗️ **Currently supporting:** UK AI companies on August 2026 emergency sprint  
 📥 **Toolkit downloads:** 228 clones, 96 unique users (see Insights for traffic)
@@ -78,8 +78,11 @@ A complete, open-source ISO 42001 implementation architecture designed specifica
 
 ---
 2. Select Your Sector Template
+
 Navigate to /templates and open the Markdown file matching your industry. Copy, customize, and adopt as your organizational AI Policy.
+
 3. Map EU AI Act Exposure
+
 Open /eu-ai-act-mapping/article-crosswalk.md. Identify exactly which ISO 42001 controls satisfy which EU AI Act obligations for your system classification.
 | Metric                           | Value                                         |
 | -------------------------------- | --------------------------------------------- |
@@ -90,6 +93,7 @@ Open /eu-ai-act-mapping/article-crosswalk.md. Identify exactly which ISO 42001 c
 | **Internal audit readiness**     | Templates include audit evidence requirements |
 
 Implementation Support
+
 This toolkit provides the foundation. If your organization requires:
 Custom implementation roadmap for BSI/UKAS certification
 EU AI Act conformity assessment documentation (full technical file)
@@ -99,6 +103,7 @@ High-risk system derogation strategy for August 2026 sprint
 Chat-based consulting is available. No calls. No Calendly. No meetings.
 
 How it works:
+
 Email your context: company size, AI systems, EU exposure, current compliance status
 Receive tailored diagnostic questions within 4 hours
 Receive flat-fee proposal within 24 hours
