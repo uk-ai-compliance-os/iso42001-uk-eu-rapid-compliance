@@ -31,7 +31,7 @@ High-value compliance architecture should not require your schedule to explode. 
 
 6. **Payment** → Invoice attached to kickoff email. Bank transfer (BACS/Faster Payments) or Wise. Work proceeds upon payment confirmation.
 
-7. 7. **Sprint Priority** → August 2026 emergency slots are limited. Diagnostic and Roadmap slots available this week. Emergency Sprint slots require 7-day advance booking.
+7. **Sprint Priority** → August 2026 emergency slots are limited. Diagnostic and Roadmap slots available this week. Emergency Sprint slots require 7-day advance booking.
 
 ---
 
