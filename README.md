@@ -17,7 +17,7 @@
 ## Current Sprint Status
 
 🚨 **75 days until EU AI Act high-risk enforcement**  
-📅 **Last updated:** May 16, 2026  
+📅 **Last updated:** May 18, 2026  
 🏗️ **Currently supporting:** UK AI companies on August 2026 emergency sprint  
 📥 **Toolkit downloads:** 228 clones, 96 unique users (see Insights for traffic)
 
