@@ -23,16 +23,18 @@
 |---|---|---|
 | Fintech | [`/templates/ai-policy-fintech.md`](templates/ai-policy-fintech.md) | ✅ Production |
 | Healthtech | [`/templates/ai-policy-healthtech.md`](templates/ai-policy-healthtech.md) | ✅ Production |
-| Legaltech | [`/templates/ai-policy-legaltech.md`](templates/ai-policy-legaltech.md) | ✅ Production |
+| SaaS | [`/templates/ai-policy-saas.md`](templates/ai-policy-saas.md) | ✅ Production |
+| Legaltech | [`/templates/ai-policy-legaltech.md`](templates/ai-policy-legaltech.md) | ✅ Production v1.1.0 |
 | Insurtech | [`/templates/ai-policy-insurtech.md`](templates/ai-policy-insurtech.md) | ✅ Production |
 
 ---
-
 ## 🚀 Quick Start (5 Minutes)
 
 ``bash
 git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
+
 cd iso42001-uk-eu-rapid-compliance
+
 # Start with /docs/getting-started.md
 
 📦 What's Inside
@@ -63,7 +65,9 @@ Step 2: Receive 7 tailored diagnostic questions within 4 hours.
 Step 3: Receive a flat-fee proposal within 24 hours. Reply "APPROVE" to begin.
 
 ⏱️ Typical response: < 4 hours (UK business hours)
+
 🚫 No calls. No meetings. Chat-based only.
+
 📅 Current availability: May–August 2026 sprint slots open.
 
 💼 Services & Investment
@@ -78,10 +82,13 @@ Step 3: Receive a flat-fee proposal within 24 hours. Reply "APPROVE" to begin.
 How it works: Email → Diagnostic → Proposal → Approve → Private GitHub repo delivery → Payment.
 
 🗣️ Regulatory Pulse & Community
+
 → View Discussions
+
 Weekly updates on UK/EU AI regulation changes, deadline shifts, and certification body updates.
 
 ⭐ Support This Work
+
 UK AI founders: Starring this repo helps other compliance teams find it before August 2.
 
 License: MIT | Contact: compliance.architect@protonmail.com | Status: August 2026 Sprint Open
