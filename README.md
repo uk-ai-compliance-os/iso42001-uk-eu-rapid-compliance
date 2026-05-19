@@ -48,9 +48,13 @@ cd iso42001-uk-eu-rapid-compliance
 🚨 Not Sure Where to Start?
 
 Step 1: Email compliance.architect@protonmail.com with:
+
    Company name and sector
+   
    Number of AI systems in production
+   
    EU customer exposure (yes/no)
+   
    Biggest compliance fear right now
 
 Step 2: Receive 7 tailored diagnostic questions within 4 hours.
