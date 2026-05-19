@@ -5,6 +5,7 @@
 &gt; **Philosophy:** No calls. No Calendly. No meetings. Chat-based implementation only.
 
 ---
+🌐 **Live Site:** [uk-ai-compliance-os.github.io/iso42001-uk-eu-rapid-compliance](https://uk-ai-compliance-os.github.io/iso42001-uk-eu-rapid-compliance/)
 
 ## 📊 For Leadership: 30-Second Business Case
 
@@ -84,5 +85,7 @@ Weekly updates on UK/EU AI regulation changes, deadline shifts, and certificatio
 UK AI founders: Starring this repo helps other compliance teams find it before August 2.
 
 License: MIT | Contact: compliance.architect@protonmail.com | Status: August 2026 Sprint Open
+
+
 
 
