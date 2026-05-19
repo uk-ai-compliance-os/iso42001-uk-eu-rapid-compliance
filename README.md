@@ -45,11 +45,9 @@ cd iso42001-uk-eu-rapid-compliance
 ├── docs/               # Implementation guides
 └── CONSULTING.md       # Chat-only engagement details
 
-
 🚨 Not Sure Where to Start?
 
 Step 1: Email compliance.architect@protonmail.com with:
-
    Company name and sector
    Number of AI systems in production
    EU customer exposure (yes/no)
@@ -75,7 +73,6 @@ Step 3: Receive a flat-fee proposal within 24 hours. Reply "APPROVE" to begin.
 How it works: Email → Diagnostic → Proposal → Approve → Private GitHub repo delivery → Payment.
 
 🗣️ Regulatory Pulse & Community
-
 → View Discussions
 Weekly updates on UK/EU AI regulation changes, deadline shifts, and certification body updates.
 
@@ -83,52 +80,5 @@ Weekly updates on UK/EU AI regulation changes, deadline shifts, and certificatio
 UK AI founders: Starring this repo helps other compliance teams find it before August 2.
 
 License: MIT | Contact: compliance.architect@protonmail.com | Status: August 2026 Sprint Open
-
-6. **Scroll down** past the text box. You will see a section called **"Commit changes..."**
-
-7. In the first small box (says "Commit message..."), type exactly:
-
-
-8. Click the green button **"Commit changes"**.
-
-✅ **DONE.** Your repo now looks like a toolkit, not a legaltech document.
-
----
-
-### STEP 2: Fix CONTRIBUTING.md (15 minutes)
-
-1. Go back to your repo main page: `https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance`
-
-2. Click on `CONTRIBUTING.md`
-
-3. Click the **pencil icon** ✏️
-
-4. Select all (`Ctrl+A`), delete everything.
-
-5. Paste this:
-
-
-# Contributing to UK-EU AI Compliance OS
-
-Thank you for improving UK AI governance standards.
-
-## How to Contribute
-
-1. **Fork** this repository
-2. **Create a branch:** `git checkout -b feat/your-update`
-3. **Commit** with clear messages: `docs: clarify SRA notification threshold`
-4. **Open a Pull Request** with context on the regulatory issue addressed
-
-## Contribution Standards
-
-- All changes must cite **specific regulatory sources** (SRA, ICO, BSI, ISO clauses).
-- No "Draft" or "WIP" language in production-facing documents.
-- UK jurisdiction focus. EU/US adaptations welcome in separate files.
-
-## Governance
-
-- **Maintainer:** compliance.architect@protonmail.com
-- **Review cycle:** Quarterly aligned with policy review dates
-
 
 
