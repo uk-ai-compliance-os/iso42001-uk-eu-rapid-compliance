@@ -1,0 +1,21 @@
+name: Daily August Countdown
+on:
+  schedule:
+    - cron: '0 5 * * *'  # Runs 05:00 UTC = 06:00 BST
+  workflow_dispatch:       # Allows manual trigger
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update countdown
+        run: |
+          DAYS=$(( ($(date -d "2026-08-02" +%s) - $(date +%s)) / 86400 ))
+          sed -i "s/<!-- COUNTDOWN -->.*<!-- ENDCOUNTDOWN -->/<!-- COUNTDOWN -->${DAYS} days until EU AI Act enforcement<!-- ENDCOUNTDOWN -->/g" README.md
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update august countdown [skip ci]"
+          git push
