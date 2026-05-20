@@ -1,21 +1,52 @@
 name: Daily August Countdown
+
 on:
   schedule:
-    - cron: '0 5 * * *'  # Runs 05:00 UTC = 06:00 BST
-  workflow_dispatch:       # Allows manual trigger
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Update countdown
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Calculate days remaining
+        id: calc
         run: |
-          DAYS=$(( ($(date -d "2026-08-02" +%s) - $(date +%s)) / 86400 ))
-          sed -i "s/<!-- COUNTDOWN -->.*<!-- ENDCOUNTDOWN -->/<!-- COUNTDOWN -->${DAYS} days until EU AI Act enforcement<!-- ENDCOUNTDOWN -->/g" README.md
+          TARGET=$(date -d "2026-08-02" +%s)
+          NOW=$(date +%s)
+          DAYS=$(( (TARGET - NOW) / 86400 ))
+          echo "days=$DAYS" >> $GITHUB_OUTPUT
+          echo "Days until August 2, 2026: $DAYS"
+
+      - name: Update README countdown
+        run: |
+          DAYS="${{ steps.calc.outputs.days }}"
+          
+          if grep -q "COUNTDOWN" README.md; then
+            sed -i "s/<!-- COUNTDOWN -->.*<!-- ENDCOUNTDOWN -->/<!-- COUNTDOWN -->${DAYS} days until EU AI Act enforcement<!-- ENDCOUNTDOWN -->/g" README.md
+            echo "✅ Countdown updated to $DAYS days"
+          else
+            echo "❌ ERROR: COUNTDOWN placeholder not found in README.md"
+            echo "Make sure README.md contains: <!-- COUNTDOWN -->...<!-- ENDCOUNTDOWN -->"
+            exit 1
+          fi
+
       - name: Commit and push
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update august countdown [skip ci]"
-          git push
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update august countdown to ${{ steps.calc.outputs.days }} days [skip ci]"
+            git push
+          fi
