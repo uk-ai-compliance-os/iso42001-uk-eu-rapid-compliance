@@ -1,9 +1,9 @@
-title: "UK Legaltech AI Governance"
-description: "Production-grade AI governance policy for England & Wales legal technology. SRA-aligned, UK GDPR, EU AI Act, ISO 42001."
-author: "compliance.architect@protonmail.com"
+title: "UK-EU AI Compliance OS"
+description: "ISO 42001 implementation toolkit and EU AI Act compliance for UK AI companies. August 2026 deadline. Fintech, Healthtech, Legaltech, Insurtech, SaaS."
+author: "UK-EU AI Compliance OS"
 email: compliance.architect@protonmail.com
-baseurl: ""
-url: "https://yourusername.github.io"
+baseurl: "/iso42001-uk-eu-rapid-compliance"
+url: "https://uk-ai-compliance-os.github.io"
 theme: minima
 
 plugins:
