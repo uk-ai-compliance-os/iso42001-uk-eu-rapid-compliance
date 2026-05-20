@@ -1,6 +1,6 @@
 # UK-EU AI Compliance OS — ISO 42001 Rapid Toolkit
 
-> **<!-- COUNTDOWN -->74 days until EU AI Act enforcement<!-- ENDCOUNTDOWN -->**
+> **<!-- COUNTDOWN -->73 days until EU AI Act enforcement<!-- ENDCOUNTDOWN -->**
 
 &gt; **Deadline Alert:** 74 days until EU AI Act high-risk enforcement (August 2, 2026).  
 &gt; **Mission:** Production-grade, open-source compliance architecture for UK AI companies.  
