@@ -2,7 +2,7 @@
 
 > **<!-- COUNTDOWN -->74 days until EU AI Act enforcement<!-- ENDCOUNTDOWN -->**
 
-&gt; **Deadline Alert:** 75 days until EU AI Act high-risk enforcement (August 2, 2026).  
+&gt; **Deadline Alert:** 74 days until EU AI Act high-risk enforcement (August 2, 2026).  
 &gt; **Mission:** Production-grade, open-source compliance architecture for UK AI companies.  
 &gt; **Philosophy:** No calls. No Calendly. No meetings. Chat-based implementation only.
 
