@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🚨 Request Implementation Support
+    url: mailto:compliance.architect@protonmail.com?subject=ISO%2042001%20Diagnostic%20Request%20-%20[Company%20Name]&body=Company%20Name%3A%0ASector%3A%20%5Bfintech%2Fhealthtech%2Flegaltech%2Finsurtech%2Fsaas%5D%0ANumber%20of%20AI%20systems%20in%20production%3A%0AEU%20customer%20exposure%20(yes%2Fno)%3A%0ABiggest%20compliance%20fear%20right%20now%3A
+    about: Email for chat-only diagnostic and flat-fee proposal (response < 4 hours)
+  - name: 📋 Request a New Sector Template
+    url: https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance/discussions/new?category=general
+    about: Suggest a new industry policy template for the open-source toolkit
+  - name: 🐛 Report a Regulatory Gap
+    url: https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance/issues/new?template=regulatory-gap.yml
+    about: Found an outdated regulation or missing requirement? Tell us.
