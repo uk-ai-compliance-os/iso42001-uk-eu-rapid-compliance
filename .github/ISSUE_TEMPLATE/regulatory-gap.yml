@@ -1,0 +1,26 @@
+name: 🐛 Regulatory Gap Report
+description: Report outdated regulation or missing compliance requirement
+title: "[REG-GAP] "
+labels: ["regulatory", "triage"]
+body:
+  - type: dropdown
+    id: regulation
+    attributes:
+      label: Which regulation?
+      options:
+        - EU AI Act
+        - ISO 42001
+        - UK GDPR / DPA 2018
+        - UK AI White Paper
+        - FCA / PRA
+        - SRA Code of Conduct
+        - MHRA / NHS
+        - Other
+  - type: textarea
+    id: gap
+    attributes:
+      label: What is the gap or outdated information?
+  - type: textarea
+    id: source
+    attributes:
+      label: Source link (guidance, statute, or official update)
