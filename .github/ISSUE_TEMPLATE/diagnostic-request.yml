@@ -12,12 +12,12 @@ body:
     attributes:
       label: Sector
       options:
-        - Fintech
-        - Healthtech
-        - Legaltech
-        - Insurtech
-        - SaaS
-        - Other
+        - "Fintech"
+        - "Healthtech"
+        - "Legaltech"
+        - "Insurtech"
+        - "SaaS"
+        - "Other"
   - type: input
     id: systems
     attributes:
@@ -27,19 +27,19 @@ body:
     attributes:
       label: EU customer / user exposure?
       options:
-        - Yes
-        - No
-        - Unknown
+        - "Yes"
+        - "No"
+        - "Unknown"
   - type: dropdown
     id: certifications
     attributes:
       label: Current ISO certifications
       options:
-        - ISO 27001
-        - ISO 9001
-        - ISO 14001
-        - None
-        - Multiple (specify in comments)
+        - "ISO 27001"
+        - "ISO 9001"
+        - "ISO 14001"
+        - "No certifications"
+        - "Multiple (specify in comments)"
   - type: input
     id: target-date
     attributes:
@@ -53,5 +53,5 @@ body:
     attributes:
       label: Engagement Preference
       options:
-        - label: I understand this is chat-only (no calls, no Calendly, no meetings)
+        - label: "I understand this is chat-only (no calls, no Calendly, no meetings)"
           required: true
