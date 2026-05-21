@@ -1,0 +1,57 @@
+name: 🚀 Private Diagnostic Request (For GitHub Users)
+description: Start your ISO 42001 / EU AI Act diagnostic via GitHub (async)
+title: "[DIAG] "
+labels: ["diagnostic", "lead"]
+body:
+  - type: input
+    id: company
+    attributes:
+      label: Company Name
+  - type: dropdown
+    id: sector
+    attributes:
+      label: Sector
+      options:
+        - Fintech
+        - Healthtech
+        - Legaltech
+        - Insurtech
+        - SaaS
+        - Other
+  - type: input
+    id: systems
+    attributes:
+      label: Number of AI systems in production or pilot
+  - type: dropdown
+    id: eu-exposure
+    attributes:
+      label: EU customer / user exposure?
+      options:
+        - Yes
+        - No
+        - Unknown
+  - type: dropdown
+    id: certifications
+    attributes:
+      label: Current ISO certifications
+      options:
+        - ISO 27001
+        - ISO 9001
+        - ISO 14001
+        - None
+        - Multiple (specify in comments)
+  - type: input
+    id: target-date
+    attributes:
+      label: Target certification or compliance date
+  - type: textarea
+    id: fear
+    attributes:
+      label: Biggest compliance fear right now
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Engagement Preference
+      options:
+        - label: I understand this is chat-only (no calls, no Calendly, no meetings)
+          required: true
