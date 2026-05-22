@@ -157,12 +157,13 @@ All AI systems are classified per EU AI Act Annex III:
 
 ---
 
-## 🚨 Need This Customised for Your Firm?
+## 🚨 Need This Customised for Your Organisation?
 
-This template provides the regulatory foundation. **Every section marked &lt;!-- CUSTOMISATION REQUIRED --&gt; needs to be tailored to your specific:**
+This template provides the regulatory foundation. Every `<!-- CUSTOMISATION REQUIRED -->` section needs tailoring to your specific:
+
 - AI systems and model types
 - Data sources and flows
-- Organisational structure
+- Organisational structure and roles
 - Risk appetite and thresholds
 - Vendor ecosystem
 - Customer base and geographic exposure
@@ -171,10 +172,10 @@ This template provides the regulatory foundation. **Every section marked &lt;!--
 
 | Service | What's Included | Investment | Timeline |
 |---------|----------------|------------|----------|
-| **EU AI Act Scope Diagnostic** | Formal scope determination, risk classification, regulatory exposure report, 90-day action checklist | £2,500 | 48 hours |
-| **ISO 42001 Rapid Implementation Roadmap** | Custom AIMS architecture, control mapping, policy suite (tailored to your sector), internal audit plan, certification body pre-assessment prep | £8,000 | 10 days |
-| **Full AIMS Build + Certification Sprint** | Complete documentation set, evidence repository structure, 2 rounds of async review, board presentation deck, auditor response scripts | £15,000 | 30 days |
-| **August 2026 Emergency Sprint** | For high-risk systems with &lt; 90 days to enforcement. Everything in Full Build, compressed to 14-day delivery with daily async check-ins. | £20,000 | 14 days |
+| **EU AI Act Scope Diagnostic** | Formal scope determination, risk classification, regulatory exposure report | £2,500 | 48 hours |
+| **ISO 42001 Rapid Roadmap** | Custom AIMS architecture, policy suite, certification prep | £8,000 | 10 days |
+| **Full AIMS Build + Cert Sprint** | Complete documentation, evidence repo, board deck, auditor scripts | £15,000 | 30 days |
+| **August 2026 Emergency Sprint** | Compressed 14-day delivery for high-risk systems | £20,000 | 14 days |
 
 📧 **Email:** compliance.architect@protonmail.com
 
@@ -184,8 +185,8 @@ This template provides the regulatory foundation. **Every section marked &lt;!--
 - EU customer exposure (yes/no)
 - Biggest compliance fear right now
 
-⏱️ **Response time:** &lt; 4 hours during UK business hours (09:00–18:00 BST)
-🚫 **No calls. No Calendly. No meetings. Chat-based only.**
+⏱️ **Response time:** < 4 hours (UK business hours 09:00–18:00 BST)
+🚫 **No calls. No Calendly. No meetings. Chat-based only.
 
 ---
 
