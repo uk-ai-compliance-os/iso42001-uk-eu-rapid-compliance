@@ -66,7 +66,7 @@
 
 ## 🚀 Quick Start (5 Minutes)
 
-``bash
+
 # Clone the toolkit
 git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
 
