@@ -19,6 +19,16 @@ This policy governs the development, procurement, deployment, and monitoring of 
 **Policy Owner:** Chief Technology Officer  
 
 ---
+## ⚖️ SRA 2026 Thematic Review Compliance
+
+The Solicitors Regulation Authority's **2026 Thematic Review on Technology and Innovation** examines:
+
+- Whether firms have documented AI governance (this policy = ✅)
+- Whether COLPs understand AI risks (§4.2 = ✅)
+- Whether client confidentiality is protected in AI workflows (§5.3 = ✅)
+- Whether fee-earners are competent to use AI (§6.2 = ✅)
+
+**Firms submitting this policy to the SRA demonstrate proactive compliance. Firms without documented governance face referral to the Supervision Team.**
 
 ## 2. REGULATORY SCOPE & APPLICABILITY
 
