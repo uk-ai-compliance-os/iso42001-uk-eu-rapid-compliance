@@ -1,0 +1,58 @@
+name: Update Template Dates
+
+on:
+  schedule:
+    # Run every Monday at 09:00 UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    # Allow manual trigger
+
+jobs:
+  update-dates:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Update dates in templates
+        run: |
+          # Get current date in format YYYY-MM-DD
+          CURRENT_DATE=$(date +%Y-%m-%d)
+          
+          # Calculate next review date (3 months from now)
+          NEXT_REVIEW=$(date -d "+3 months" +%Y-%m-%d)
+          
+          # Update all template files
+          for file in templates/*.md; do
+            if [ -f "$file" ]; then
+              # Replace Last Updated date
+              sed -i "s/Last Updated: [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}/Last Updated: $CURRENT_DATE/g" "$file"
+              
+              # Replace Next Review date
+              sed -i "s/Next Review: [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}/Next Review: $NEXT_REVIEW/g" "$file"
+              
+              echo "Updated $file"
+            fi
+          done
+          
+          # Update README countdown
+          # Calculate days until August 2, 2026
+          TARGET_DATE="2026-08-02"
+          DAYS_UNTIL=$(($(date -d "$TARGET_DATE" +%s) - $(date +%s)))
+          DAYS_UNTIL=$((DAYS_UNTIL / 86400))
+          
+          if [ -f "README.md" ]; then
+            sed -i "s/[0-9]\+ days until EU AI Act enforcement/$DAYS_UNTIL days until EU AI Act enforcement/g" "README.md"
+            echo "Updated README.md countdown: $DAYS_UNTIL days"
+          fi
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add templates/*.md README.md
+          git diff --cached --quiet || git commit -m "chore: update template dates and countdown [skip ci]"
+          git diff --cached --quiet || git push
