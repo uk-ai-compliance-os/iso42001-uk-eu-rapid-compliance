@@ -21,6 +21,19 @@ This policy governs the development, procurement, deployment, and monitoring of 
 **Policy Owner:** Chief Medical Officer
 
 ---
+## 🏥 NHS Procurement Readiness Statement
+
+This policy is designed to satisfy **NHS Digital Technology Assessment Criteria (DTAC)** across all 5 domains:
+
+| DTAC Domain | Policy Section | Evidence Ready |
+|-------------|----------------|----------------|
+| Clinical Safety | §4.1, §5.1, §8 | ✅ Safety case template included |
+| Data Protection | §6, §6.1 | ✅ DPIA framework included |
+| Technical Security | §12 | ✅ Penetration test scope included |
+| Interoperability | §5.3 | ✅ Data residency clauses included |
+| Usability & Accessibility | §7.2 | ✅ Easy-read format guidance included |
+
+**NHS Trusts: Use this template as your DTAC evidence submission. Bespoke adaptation available via chat-only consulting.**
 
 ## 2. REGULATORY SCOPE & APPLICABILITY
 
