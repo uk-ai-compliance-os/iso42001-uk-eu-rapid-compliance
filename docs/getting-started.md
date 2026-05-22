@@ -31,6 +31,6 @@ The UK-EU AI Compliance OS is an **open-source compliance architecture** for UK 
 
 ### Step 1: Clone the Repository
 
-
+```bash
 git clone https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance.git
 cd iso42001-uk-eu-rapid-compliance
