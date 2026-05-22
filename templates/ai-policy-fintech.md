@@ -1,3 +1,4 @@
+
 > **Status:** Production-Ready Template | **Last Updated:** 2026-05-22 | **Next Review:** 2026-08-22 | **Version:** 1.0.0-PROD
 # AI Policy Template — UK Fintech
 ## 📊 For Leadership: 30-Second Business Case
