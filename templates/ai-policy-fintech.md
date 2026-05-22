@@ -1,4 +1,14 @@
 # AI Policy Template — UK Fintech
+## 📊 For Leadership: 30-Second Business Case
+
+| Without This Template | With This Template |
+|---|---|
+| £80k–£150k Big Four engagement | £0 template + £8k–£15k bespoke implementation |
+| 6–12 months to documented foundation | 5–10 days to board-ready policy |
+| FCA enforcement risk: unlimited fines | Structured conformity assessment path |
+| No internal audit capability | Audit-ready templates with evidence requirements |
+
+**Certification-ready AI governance for a fraction of traditional cost, delivered before the FCA's Q3 2026 thematic review.**
 ## ISO 42001 / EU AI Act Aligned | Credit Scoring & Fraud Detection
 
 &gt; **Status:** Production Template v1.0.0 | Last Updated: 2026-05-22
