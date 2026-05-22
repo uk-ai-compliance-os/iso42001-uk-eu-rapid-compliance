@@ -1,0 +1,9 @@
+{
+  "company_name": "Acme AI Ltd",
+  "sector": "fintech",
+  "ai_systems_count": 5,
+  "eu_exposure": "yes",
+  "current_iso_certifications": ["27001"],
+  "target_date": "2026-08-02",
+  "biggest_fear": "EU AI Act penalties for credit scoring AI"
+}
