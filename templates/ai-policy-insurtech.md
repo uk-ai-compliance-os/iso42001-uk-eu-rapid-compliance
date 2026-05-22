@@ -1,3 +1,4 @@
+> **Status:** Production-Ready Template | **Last Updated:** 2026-05-22 | **Next Review:** 2026-08-22 | **Version:** 1.0.0-PROD
 # 🇬🇧 UK INSURTECH AI GOVERNANCE POLICY — PRODUCTION EDITION
 ## AI Management System (AIMS) | ISO 42001:2023 | EU AI Act (2024/1689) | FCA FG 23/3 | PRA SS2/13
 
