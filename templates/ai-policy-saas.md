@@ -44,6 +44,20 @@ This policy governs the development, procurement, deployment, monitoring, and re
 - Internal AI tools used for product development, support, or operations
 - Multi-tenant AI infrastructure (shared models across customer workspaces)
 
+## 🏢 Enterprise Procurement Readiness
+
+UK enterprises now require **ISO 42001 evidence** in RFPs. This template provides:
+
+| RFP Requirement | Policy Section | Evidence Format |
+|-----------------|----------------|-----------------|
+| AI governance policy | §1–§4 | Markdown + PDF |
+| Risk classification | §3 | Spreadsheet template |
+| Bias testing protocol | §5.2 | Test report template |
+| Third-party AI due diligence | §6 | Vendor assessment checklist |
+| Incident response plan | §9.2 | Runbook template |
+| Data residency commitment | §5.1 | Contract clause template |
+
+**SaaS founders: Use this template to close enterprise deals 40% faster. Bespoke RFP response architecture available via chat-only consulting.**
 ---
 
 ## 3. AI SYSTEM CLASSIFICATION MATRIX
