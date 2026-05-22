@@ -41,6 +41,19 @@
 **Board Resolution Reference:** BOD/2026/AI-001  
 **Date of Board Approval:** May 19, 2026
 
+## 🎯 FCA Consumer Duty: The AI Fair Value Test
+
+Under **FCA Consumer Duty rules (PS22/9)**, your AI systems must demonstrate:
+
+| Consumer Duty Outcome | AI Governance Requirement | This Policy Section |
+|----------------------|---------------------------|---------------------|
+| **Products & Services** | AI features must meet customer needs | §3.3 (Risk Triggers) |
+| **Price & Value** | AI pricing must be fair and transparent | §6.1 (Customer Disclosures) |
+| **Consumer Understanding** | AI decisions must be explainable | §6.2 (Internal Explainability) |
+| **Consumer Support** | Vulnerable customers must be identified | §7.1 (Vulnerable Customer Champion) |
+
+**The FCA's 2026 supervisory priorities include AI-driven pricing. Firms without documented 'fair value' assessments face skilled persons reviews.**
+
 ---
 
 ## 1. REGULATORY SCOPE & APPLICABILITY MATRIX
