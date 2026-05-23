@@ -1,6 +1,7 @@
 **Status:** Production-Ready Template | **Last Updated:** 2026-05-22 | **Next Review:** 2026-08-22 | **Version:** 1.1.0-PROD
 
 🇬🇧 LEGALTECH AI GOVERNANCE POLICY
+Status: Production-Ready Template
 Version: 1.1.0-PROD
 Effective Date: May 18, 2026
 Jurisdiction: United Kingdom (England & Wales)
@@ -8,6 +9,17 @@ Classification: Client-Facing Governance Document
 Review Cycle: Quarterly
 Owner: Chief Technology Officer / Money Laundering Reporting Officer (MLRO)
 Contact: compliance.architect@protonmail.com
+Last Updated: 2026-05-23
+Next Review: 2026-08-23
+
+| Without This Template                 | With This Template                               |
+| ------------------------------------- | ------------------------------------------------ |
+| £80k–£150k Big Four engagement        | £0 template + £8k–£15k bespoke implementation    |
+| 6–12 months to documented foundation  | 5–10 days to board-ready policy                  |
+| SRA enforcement risk: unlimited fines | Structured conformity assessment path            |
+| No internal audit capability          | Audit-ready templates with evidence requirements |
+
+Certification-ready AI governance for a fraction of traditional cost, delivered before the SRA's Q3 2026 thematic review.
 
 ⚖️ SRA 2026 Thematic Review Compliance
 
@@ -19,17 +31,6 @@ The Solicitors Regulation Authority's 2026 Thematic Review on Technology and Inn
    Whether fee-earners are competent to use AI (Section 6.2 = ✅)
    
    Firms submitting this policy to the SRA demonstrate proactive compliance. Firms without documented governance face referral to the Supervision Team.
-
-   📊 For Leadership: 30-Second Business Case
-
-| Without This Template                 | With This Template                               |
-| ------------------------------------- | ------------------------------------------------ |
-| £80k–£150k Big Four engagement        | £0 template + £8k–£15k bespoke implementation    |
-| 6–12 months to documented foundation  | 5–10 days to board-ready policy                  |
-| SRA enforcement risk: unlimited fines | Structured conformity assessment path            |
-| No internal audit capability          | Audit-ready templates with evidence requirements |
-
-Certification-ready AI governance for a fraction of traditional cost, delivered before the SRA's Q3 2026 thematic review.
 
 1. EXECUTIVE MANDATE
 
@@ -89,7 +90,7 @@ The following AI applications are expressly prohibited within [Firm Name]:
    
 6. Subversion of judicial process — AI shall not be used to generate fabricated authorities, fake case law, or misleading precedents (hallucinated citations) for     submission to any court or tribunal.
 
-4. GOVERNANCE ARCHITECTURE
+4.GOVERNANCE ARCHITECTURE
 
 4.1 Three Lines of Defence
 
