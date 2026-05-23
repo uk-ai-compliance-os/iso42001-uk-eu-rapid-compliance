@@ -1,4 +1,5 @@
-> **Status:** Production-Ready Template | **Last Updated:** 2026-05-22 | **Next Review:** 2026-08-22 | **Version:** 1.0.0-PROD
+**Status:** Production-Ready Template | **Last Updated:** 2026-05-22 | **Next Review:** 2026-08-22 | **Version:** 1.1.0-PROD
+
 # AI Policy Template — UK SaaS
 ## ISO 42001 / EU AI Act Aligned | B2B SaaS, API-First Platforms & Multi-Tenant AI
 
