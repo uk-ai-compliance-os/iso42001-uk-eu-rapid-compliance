@@ -1,53 +1,28 @@
 # EU AI Act Annex III → ISO 42001:2023 Crosswalk
-&gt; **Purpose:** Map high-risk AI system categories to ISO 42001 controls for dual compliance.  
-&gt; **For:** UK AI companies with EU market exposure
 
-| EU AI Act Annex III Section | High-Risk Domain | ISO 42001:2023 Clause / Annex A Control | Compliance Action |
-|-----------------------------|------------------|------------------------------------------|-------------------|
-| **Section 1** | Biometric identification & categorisation | A.5 (Risk assessment), A.7 (Human oversight) | Conduct DPIA + bias audit + HITL protocol |
-| **Section 2** | Critical infrastructure management (water, gas, electricity) | A.5, A.6 (Data governance), A.9 (Internal audit) | Safety case + continuous monitoring + third-party validation |
-| **Section 3** | Education & vocational training (admission, assessment) | A.5, A.8 (Transparency), A.7 | Fairness testing + explainability docs + appeals process |
-| **Section 4** | Employment, workers management, self-employment (recruitment, promotion) | A.5, A.7, A.8 | Bias audit across protected characteristics + human review + disclosure |
-| **Section 5** | Access to essential services (credit scoring, insurance, benefits) | A.5, A.6, A.7, A.8 | Full AIA + data provenance + override authority + Article 52 notice |
-| **Section 6** | Law enforcement (risk assessment, evidence evaluation) | A.5, A.6, A.7, A.9 | National security exemptions review + accuracy thresholds + audit trail |
-| **Section 7** | Migration, asylum, border control | A.5, A.7, A.8 | Fundamental rights impact assessment + human-in-the-loop mandatory |
-| **Section 8** | Administration of justice & democratic processes | A.5, A.7, A.8, A.9 | Highest oversight standard + explainability + independent validation |
+## High-Risk Systems (Annex III)
 
----
+| EU AI Act Annex III Section | System Type | ISO 42001 Clause | Control Area |
+|---|---|---|---|
+| Section 1 | Biometric identification | 6.1, 6.2 | AI system impact assessment |
+| Section 2 | Critical infrastructure | 6.3, 7.2 | Risk management, AI system lifecycle |
+| Section 3 | Education / vocational training | 6.4, 8.2 | Resource management, data governance |
+| Section 4 | Employment / workers management | 6.4, 8.3 | Resource management, bias monitoring |
+| Section 5 | Access to essential services (credit, insurance) | 6.1, 7.3, 8.2 | Impact assessment, documentation, data |
+| Section 6 | Law enforcement | 6.2, 7.4, 9.2 | Impact assessment, traceability, monitoring |
+| Section 7 | Migration / asylum / border control | 6.2, 7.4 | Impact assessment, traceability |
+| Section 8 | Administration of justice | 6.1, 7.3, 9.1 | Impact assessment, documentation, evaluation |
 
-## Key Mapping Notes
+## Scope Determination Framework
 
-### Risk Management (Art. 9 EU AI Act ↔ ISO 42001 A.5)
-- EU AI Act requires "continuous, iterative" risk management.
-- ISO 42001 A.5 provides the management system framework for this.
-- **Gap:** ISO 42001 does not prescribe specific bias tests. You must add domain-specific fairness metrics.
+**Question 1:** Does your AI system fall into any Annex III category above?  
+**Question 2:** Do EU citizens, residents, or legal entities interact with your AI output?  
+**Question 3:** Is your AI system placed on the EU market or put into service in the EU?
 
-### Data Governance (Art. 10 EU AI Act ↔ ISO 42001 A.6)
-- Both require training data suitability, representativeness, and error handling.
-- **Gap:** EU AI Act explicitly bans use of sensitive data (Art. 10(5)) unless strictly necessary. ISO 42001 is silent on this — add explicit prohibition in your policy.
+If **all three are YES** → your system is **high-risk** and requires full ISO 42001 AIMS + EU AI Act conformity assessment.
 
-### Human Oversight (Art. 14 EU AI Act ↔ ISO 42001 A.7)
-- EU AI Act: overseers must have "competence, authority, resources."
-- ISO 42001 A.7: defines roles and responsibilities.
-- **Gap:** Add training records and competence matrices to prove oversight capability.
-
-### Transparency (Art. 52 EU AI Act ↔ ISO 42001 A.8)
-- EU AI Act: user must know they are interacting with AI.
-- ISO 42001 A.8: communication and disclosure.
-- **Gap:** Article 52 requires specific formatting and timing of notices. Add this to your template.
+If **Question 2 or 3 is NO** → EU AI Act does not apply. ISO 42001 is still recommended for UK credibility.
 
 ---
 
-## How to Use This Crosswalk
-
-1. Identify your Annex III section(s).
-2. Read the mapped ISO 42001 controls.
-3. Check your current documentation against both columns.
-4. Where there is a "Gap," create a policy amendment or evidence item.
-5. Present this crosswalk to your certification body auditor — it demonstrates regulatory breadth.
-
----
-
-**Need a bespoke crosswalk for your specific AI system?**  
-📧 `compliance.architect@protonmail.com`  
-Sector-specific mapping delivered in 48 hours. Chat-only.
+*Part of the UK-EU AI Compliance OS. For a customised scope determination, email compliance.architect@protonmail.com.*
