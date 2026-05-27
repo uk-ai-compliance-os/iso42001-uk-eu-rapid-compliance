@@ -1,8 +1,8 @@
 # UK-EU AI Compliance OS — ISO 42001 Rapid Implementation
 
-> ⏰ **DEADLINE ALERT:** 67 days until EU AI Act high-risk enforcement (August 2, 2026).  
-> 💰 **COST REALITY:** A Big Four compliance engagement costs £80,000–£150,000 and takes 6–12 months. This architecture gives you the same documentation foundation in 48 hours — for £0.  
-> 🎯 **MISSION:** Every UK AI company deserves a fighting chance before August 2. The foundation is free. The implementation is not.
+⏰ **DEADLINE ALERT:** 67 days until EU AI Act high-risk enforcement (August 2, 2026).  
+💰 **COST REALITY:** A Big Four compliance engagement costs £80,000–£150,000 and takes 6–12 months. This architecture gives you the same documentation foundation in 48 hours — for £0.  
+🎯 **MISSION:** Every UK AI company deserves a fighting chance before August 2. The foundation is free. The implementation is not.
 
 ---
 
@@ -13,8 +13,7 @@ Specialist in UK/EU AI regulatory alignment • ISO 42001 • EU AI Act Annex II
 📧 [compliance.architect@protonmail.com](mailto:compliance.architect@protonmail.com)  
 ⏱️ Typical response: < 4 hours (UK business hours, 09:00–18:00 BST)
 
-> "I built this after watching UK AI founders get quoted £100K+ for ISO 42001 documentation that took 6 months and still failed pre-assessment. The August 2 deadline does not allow that luxury."
-
+*"I built this after watching UK AI founders get quoted £100K+ for ISO 42001 documentation that took 6 months and still failed pre-assessment. The August 2 deadline does not allow that luxury."*
 ---
 
 ## ⏱️ The 90-Second Decision
