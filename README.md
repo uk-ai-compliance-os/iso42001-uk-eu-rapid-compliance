@@ -1,4 +1,4 @@
-# UK-EU AI Compliance OS — ISO 42001 Rapid Implementation
+# UK-EU AI Compliance OS — ISO 42001 Rapid Implementation 
 
 ⏰ **DEADLINE ALERT:** 67 days until EU AI Act high-risk enforcement (August 2, 2026).  
 💰 **COST REALITY:** A Big Four compliance engagement costs £80,000–£150,000 and takes 6–12 months. This architecture gives you the same documentation foundation in 48 hours — for £0.  
@@ -176,15 +176,19 @@ Step 3: Receive a flat-fee proposal within 24 hours of your reply. Reply with th
 
 How it works: Email → Diagnostic → Proposal → APPROVE → Private GitHub repo delivery → Payment.
 
-|                    |                                                         |
-| ------------------ | ------------------------------------------------------- |
-| **Payment method** | Faster Payments (FPS) only                              |
-| **Terms**          | 50% on approval, 50% on delivery                        |
-| **Invoicing**      | VAT invoice provided on request                         |
-| **Contract**       | Master Services Agreement available on request          |
-| **NDA**            | Mutual NDA standard; client-specific NDA accepted       |
-| **Delivery**       | Private GitHub repository with full documentation suite |
+### 💳 Payment & Terms
+| | |
+|---|---|
+| **Legal Entity** | Rima Banerjee, trading as UK-EU AI Compliance OS |
+| **Payment Methods** | FPS, BACS, or CHAPS (GBP only) |
+| **Terms** | 50% on approval, 50% on delivery |
+| **Invoicing** | VAT invoice provided on request |
+| **Contract** | [Master Services Agreement](./legal/MSA-v1.0.pdf) |
+| **NDA** | [Mutual NDA](./legal/NDA-mutual-v1.0.pdf) |
+| **Delivery** | Private GitHub repository with full documentation suite |
 
+> Full bank details provided upon invoice issuance.
+> Full bank details provided upon invoice issuance.
 No calls. No Calendly. No procurement delays.
 Email → Proposal → APPROVE → Invoice → Delivery.
 
