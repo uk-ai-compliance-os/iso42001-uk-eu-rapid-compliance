@@ -1,0 +1,487 @@
+/* ============================================
+   EU AI Act Penalty Calculator Styles
+   UK-EU AI Compliance OS
+   ============================================ */
+
+:root {
+    --color-bg: #0d1117;
+    --color-surface: #161b22;
+    --color-border: #30363d;
+    --color-text: #c9d1d9;
+    --color-text-muted: #8b949e;
+    --color-primary: #238636;
+    --color-primary-hover: #2ea043;
+    --color-danger: #da3633;
+    --color-danger-bg: rgba(218, 54, 51, 0.1);
+    --color-warning: #d29922;
+    --color-warning-bg: rgba(210, 153, 34, 0.1);
+    --color-success: #3fb950;
+    --color-success-bg: rgba(63, 185, 80, 0.1);
+    --color-info: #58a6ff;
+    --color-info-bg: rgba(88, 166, 255, 0.1);
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    --radius: 12px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.brand {
+    margin-bottom: 1rem;
+}
+
+.brand a {
+    color: var(--color-info);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.brand a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #f0f6fc;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Urgency Banner */
+.urgency-banner {
+    background: linear-gradient(135deg, var(--color-danger), #b62324);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: var(--shadow);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.95; transform: scale(1.01); }
+}
+
+#daysLeft {
+    font-size: 1.25rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Calculator Form */
+.calculator-form {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: #f0f6fc;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--color-info);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+}
+
+input::placeholder {
+    color: var(--color-text-muted);
+}
+
+small {
+    display: block;
+    margin-top: 0.375rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* Error Message */
+.error-message {
+    background: var(--color-danger-bg);
+    border: 1px solid var(--color-danger);
+    color: var(--color-danger);
+    padding: 0.875rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Calculate Button */
+.calculate-btn {
+    width: 100%;
+    padding: 1.125rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 12px rgba(35, 134, 54, 0.3);
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(35, 134, 54, 0.4);
+}
+
+.calculate-btn:active {
+    transform: translateY(0);
+}
+
+/* Results Section */
+.results {
+    margin-top: 2rem;
+}
+
+.results.hidden {
+    display: none;
+}
+
+.result-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.result-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 1rem;
+}
+
+/* Penalty Card */
+.penalty-amount {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--color-danger);
+    margin: 1rem 0;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 10px rgba(218, 54, 51, 0.3);
+}
+
+.penalty-detail {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.penalty-law {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+    font-style: italic;
+}
+
+/* Risk Tier */
+.risk-tier {
+    display: inline-block;
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0.75rem 0;
+    letter-spacing: 0.02em;
+}
+
+.risk-high {
+    background: var(--color-danger-bg);
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+}
+
+.risk-limited {
+    background: var(--color-warning-bg);
+    color: var(--color-warning);
+    border: 1px solid var(--color-warning);
+}
+
+.risk-low {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+}
+
+.risk-minimal {
+    background: var(--color-info-bg);
+    color: var(--color-info);
+    border: 1px solid var(--color-info);
+}
+
+.risk-explanation {
+    margin: 1rem 0;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.risk-actions {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--color-bg);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-info);
+}
+
+.risk-actions a {
+    color: var(--color-info);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.risk-actions a:hover {
+    text-decoration: underline;
+}
+
+/* Comparison Table */
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.comparison-table th {
+    text-align: left;
+    padding: 1rem;
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.comparison-table td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+}
+
+.comparison-table .subtext {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+.danger-row { background: var(--color-danger-bg); }
+.warning-row { background: var(--color-warning-bg); }
+.success-row { background: var(--color-success-bg); }
+
+.cost-danger { color: var(--color-danger); font-weight: 700; }
+.cost-warning { color: var(--color-warning); font-weight: 700; }
+.cost-success { color: var(--color-success); font-weight: 700; }
+
+/* Trust Card */
+.deliverables-list {
+    list-style: none;
+    padding: 0;
+}
+
+.deliverables-list li {
+    padding: 0.625rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.deliverables-list li:last-child {
+    border-bottom: none;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--color-primary), #1a7f37);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+}
+
+.cta-section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.cta-subtext {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-btn-primary {
+    display: inline-block;
+    background: white;
+    color: var(--color-primary);
+    padding: 1.125rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+}
+
+.cta-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.response-guarantee {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* Secondary CTA */
+.secondary-cta {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+}
+
+.secondary-cta a {
+    color: var(--color-info);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.secondary-cta a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.footer-content {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.footer-content p {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: var(--color-info);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    .penalty-amount {
+        font-size: 2.5rem;
+    }
+    
+    .calculator-form,
+    .result-card,
+    .cta-section {
+        padding: 1.5rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+}
