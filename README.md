@@ -80,9 +80,7 @@ Specialist in UK/EU AI regulatory alignment • ISO 42001 • EU AI Act Annex II
 | ISO 42001 gap analysis | £15,000–£25,000 | Free ([self-assessment checklist](./gap-analysis/self-assessment-checklist.md) + CLI) |
 | Sector-specific AI policy | £10,000–£20,000 | Free (5 production-ready policies) |
 | Risk register build | £5,000–£8,000 | Free ([15 pre-mapped risks](./risk-registers/ai-risk-register-template.md)) |
-| EU AI Act regulatory mapping | £8,000–£12,000 | Free ([Annex III → ISO 42001 crosswalk](./eu-ai-act-mapping/high-risk-systems-crosswalk.md)) |
-| Evidence repository structure | £5,000–£10,000 | Free (documented folder structure) |
-| **TOTAL FOUNDATION** | **£43,000–£75,000** | **£0** |
+| EU AI Act regulatory mapping | £8,000–£12,000 | Free ([Annex III to ISO 42001 crosswalk](./eu-ai-act-mapping/annex-iii-to-iso-42001-crosswalk.md)) 
 | Implementation support | £80,000–£150,000 (Big Four) | £8,000–£20,000 (chat-only, flat-fee) |
 
 **This is not a "template."** This is a £43,000+ compliance foundation that took 200+ hours to build. Open-sourced because the August 2 deadline is too close for gatekeeping.
@@ -130,22 +128,25 @@ iso42001-uk-eu-rapid-compliance/
 
 └── CONSULTING.md               # Implementation engagement details
 
-🧠 Live Diagnostic Examples (Free)
+## 🧠 Live Diagnostic Examples (Free)
 
-Example 1: UK Fintech — Credit Scoring AI
+### Example 1: UK Fintech — Credit Scoring AI
 
-Scenario: Series A fintech, 3 AI models in production, EU customers via Stripe.
-Diagnostic Finding: EU AI Act Annex III, Section 5 (high-risk). ISO 42001 required by Q3 2026.
-Path: Rapid Roadmap (£8,000) → Full AIMS Build (£15,000) → Certification-ready in 45 days.
-→ View anonymised deliverable structure
+**Scenario:** Series A fintech, 3 AI models in production, EU customers via Stripe.  
+**Diagnostic Finding:** EU AI Act Annex III, Section 5 (high-risk). ISO 42001 required by Q3 2026.  
+**Path:** Rapid Roadmap (£8,000) → Full AIMS Build (£15,000) → Certification-ready in 45 days.  
 
-Example 2: UK Healthtech — Diagnostic Imaging SaaS
+[View anonymised deliverable structure](./examples/fintech-credit-scoring-diagnostic.md)
 
-Scenario: MHRA-registered SaMD, NHS Trust pilot, no EU users yet.
-Diagnostic Finding: EU AI Act does not apply (no EU exposure). ISO 42001 recommended for NHS procurement credibility.
-Path: Scope Diagnostic (£2,500) → ISO 42001 Rapid Roadmap (£8,000) only. Saved £12,000 vs. full build.
-→ View scope determination framework
+---
 
+### Example 2: UK Healthtech — Diagnostic Imaging SaaS
+
+**Scenario:** MHRA-registered SaMD, NHS Trust pilot, no EU users yet.  
+**Diagnostic Finding:** EU AI Act does not apply (no EU exposure). ISO 42001 recommended for NHS procurement credibility.  
+**Path:** Scope Diagnostic (£2,500) → ISO 42001 Rapid Roadmap (£8,000) only. Saved £12,000 vs. full build.  
+
+[View scope determination framework](./examples/healthtech-diagnostic-imaging-diagnostic.md)
 🚨 Not Sure Where to Start? (3-Step Diagnostic)
 
 Step 1: Email compliance.architect@protonmail.com with:
