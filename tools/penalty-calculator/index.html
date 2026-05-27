@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO META TAGS - DO NOT CHANGE -->
+    <title>EU AI Act Penalty Calculator 2026 | Free Fine Estimator for UK AI Companies</title>
+    <meta name="description" content="Free EU AI Act penalty calculator for UK AI companies. Calculate your fine exposure in 30 seconds. August 2026 enforcement deadline. ISO 42001 compliance.">
+    <meta name="keywords" content="EU AI Act penalty calculator, EU AI Act fines UK, ISO 42001 fine calculator, AI Act penalty estimator, UK AI compliance fines, August 2026 AI Act enforcement, EU AI Act Article 99, AI governance penalty UK, high-risk AI system fines">
+    <meta name="author" content="UK-EU AI Compliance OS">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="EU AI Act Penalty Calculator 2026">
+    <meta property="og:description" content="Calculate your EU AI Act fine exposure in 30 seconds. Free tool for UK AI companies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uk-ai-compliance-os.github.io/iso42001-uk-eu-rapid-compliance/tools/penalty-calculator/">
+    
+    <link rel="canonical" href="https://uk-ai-compliance-os.github.io/iso42001-uk-eu-rapid-compliance/tools/penalty-calculator/">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header>
+            <div class="brand">
+                <a href="https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance">UK-EU AI Compliance OS</a>
+            </div>
+            <h1>EU AI Act Penalty Calculator</h1>
+            <p class="subtitle">Calculate your regulatory fine exposure before August 2, 2026</p>
+            <div class="urgency-banner" id="countdownBanner">
+                ⚠️ ENFORCEMENT COUNTDOWN: <span id="daysLeft">72</span> days until high-risk system penalties apply
+            </div>
+        </header>
+
+        <!-- CALCULATOR FORM -->
+        <section class="calculator-form" aria-label="Penalty Calculator">
+            
+            <div class="input-group">
+                <label for="revenue">Annual Global Revenue (GBP)</label>
+                <input 
+                    type="number" 
+                    id="revenue" 
+                    placeholder="e.g. 5000000" 
+                    min="0" 
+                    step="1000"
+                    aria-describedby="revenueHelp"
+                >
+                <small id="revenueHelp">Enter your company's global annual turnover in GBP</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="sector">AI Sector</label>
+                <select id="sector" aria-label="Select your AI sector">
+                    <option value="" disabled selected>Select your sector...</option>
+                    <option value="fintech">Fintech — Credit scoring, fraud detection, AML, algorithmic trading</option>
+                    <option value="healthtech">Healthtech — Diagnostic AI, clinical decision support, patient triage, SaMD</option>
+                    <option value="saas">SaaS — General AI with EU enterprise customers</option>
+                    <option value="legaltech">Legaltech — SRA-regulated, privilege preservation, COLP/COFA</option>
+                    <option value="insurtech">Insurtech — Claims prediction, underwriting automation</option>
+                    <option value="other">Other — Please specify in email</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="aiSystems">AI Systems in Production or Pilot</label>
+                <input 
+                    type="number" 
+                    id="aiSystems" 
+                    placeholder="e.g. 3" 
+                    min="0" 
+                    max="100"
+                    aria-describedby="systemsHelp"
+                >
+                <small id="systemsHelp">Include all AI/ML models in production, pilot, or beta</small>
+            </div>
+
+            <div class="input-group">
+                <label for="euExposure">EU Customer or User Exposure</label>
+                <select id="euExposure" aria-label="EU exposure status">
+                    <option value="" disabled selected>Select exposure level...</option>
+                    <option value="yes">Yes — Direct EU enterprise customers or EU users</option>
+                    <option value="platform">Via platform — EU users through Stripe, AWS, or third-party</option>
+                    <option value="no">No — UK only, no EU data or users</option>
+                    <option value="unknown">Unknown — Need scope determination</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="companySize">Company Size</label>
+                <select id="companySize" aria-label="Company size">
+                    <option value="" disabled selected>Select size...</option>
+                    <option value="startup">Startup / Pre-Series A (&lt; 10 employees)</option>
+                    <option value="scaleup">Scaleup / Series A-B (10-50 employees)</option>
+                    <option value="midmarket">Mid-market (50-250 employees)</option>
+                    <option value="enterprise">Enterprise (250+ employees)</option>
+                </select>
+            </div>
+
+            <button 
+                type="button" 
+                onclick="calculatePenalty()" 
+                class="calculate-btn"
+                aria-label="Calculate EU AI Act penalty exposure"
+            >
+                CALCULATE MY PENALTY EXPOSURE →
+            </button>
+        </section>
+
+        <!-- RESULTS SECTION (Hidden until calculated) -->
+        <section id="results" class="results hidden" aria-live="polite">
+            
+            <!-- PENALTY AMOUNT -->
+            <div class="result-card penalty-card">
+                <h2>Your Estimated EU AI Act Penalty</h2>
+                <div class="penalty-amount" id="penaltyAmount">£0</div>
+                <div class="penalty-detail" id="penaltyDetail"></div>
+                <div class="penalty-law" id="penaltyLaw"></div>
+            </div>
+
+            <!-- RISK CLASSIFICATION -->
+            <div class="result-card risk-card">
+                <h2>Your Risk Classification</h2>
+                <div class="risk-tier" id="riskTier">—</div>
+                <div class="risk-explanation" id="riskExplanation"></div>
+                <div class="risk-actions" id="riskActions"></div>
+            </div>
+
+            <!-- COMPARISON TABLE -->
+            <div class="result-card comparison-card">
+                <h2>Cost Comparison: Inaction vs. Action</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Path</th>
+                            <th>Investment</th>
+                            <th>Timeline</th>
+                            <th>Outcome by August 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="danger-row">
+                            <td><strong>Do Nothing</strong><br><span class="subtext">Wait until enforcement</span></td>
+                            <td id="inactionCost" class="cost-danger">£0 now</td>
+                            <td>72 days</td>
+                            <td>Full penalty exposure + regulatory blacklisting + customer churn</td>
+                        </tr>
+                        <tr class="warning-row">
+                            <td><strong>Big Four Consultancy</strong><br><span class="subtext">Traditional approach</span></td>
+                            <td class="cost-warning">£80,000 – £150,000</td>
+                            <td>6-12 months</td>
+                            <td>Misses deadline. Still not audit-ready by August.</td>
+                        </tr>
+                        <tr class="success-row">
+                            <td><strong>ISO 42001 Rapid Roadmap</strong><br><span class="subtext">Flat-fee, chat-only</span></td>
+                            <td class="cost-success">£8,000</td>
+                            <td>10 days</td>
+                            <td>Audit-ready AIMS foundation. Certification body prepped.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TRUST SIGNALS -->
+            <div class="result-card trust-card">
+                <h3>What You Get in the Rapid Roadmap</h3>
+                <ul class="deliverables-list">
+                    <li>✓ Custom AIMS architecture mapped to your sector</li>
+                    <li>✓ Complete policy suite (AI Policy, Risk Policy, Data Governance)</li>
+                    <li>✓ Pre-mapped ISO 42001 control evidence register</li>
+                    <li>✓ Internal audit plan and auditor response scripts</li>
+                    <li>✓ Certification body pre-assessment preparation</li>
+                    <li>✓ Private GitHub repo delivery within 10 days</li>
+                </ul>
+            </div>
+
+            <!-- PRIMARY CTA -->
+            <div class="cta-section">
+                <h2>This number is not hypothetical. It is your liability.</h2>
+                <p class="cta-subtext">Get a flat-fee proposal within 24 hours. No calls. No meetings. No sales calls.</p>
+                
+                <a 
+                    href="mailto:compliance.architect@protonmail.com?subject=PENALTY%20CALCULATOR%20RESULT%20—%20Urgent%20Roadmap%20Needed&body=I%20used%20the%20EU%20AI%20Act%20Penalty%20Calculator%20and%20need%20the%20ISO%2042001%20Rapid%20Roadmap.%0A%0APlease%20send%20the%20diagnostic%20questions.%0A%0A—" 
+                    class="cta-btn-primary"
+                >
+                    EMAIL ME THIS RESULT + GET PROPOSAL →
+                </a>
+                
+                <p class="response-guarantee">
+                    ⏱ Typical response: <strong>&lt; 4 hours</strong> during UK business hours (09:00–18:00 BST)<br>
+                    📅 Current availability: May–August 2026 sprint slots open
+                </p>
+            </div>
+
+            <!-- SECONDARY CTA -->
+            <div class="secondary-cta">
+                <p>Not ready to commit? <a href="mailto:compliance.architect@protonmail.com?subject=Scope%20Diagnostic%20Only%20—%20£2,500">Start with the £2,500 Scope Diagnostic →</a></p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-content">
+                <p><strong>Disclaimer:</strong> This calculator provides estimates based on EU AI Act (2024/1689) Article 99. Actual penalties are determined by regulatory authorities. For binding legal advice, consult a qualified solicitor.</p>
+                <p class="footer-links">
+                    <a href="https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance">← Back to Compliance OS Toolkit</a> | 
+                    <a href="https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance/blob/main/CONSULTING.md">View Services & Pricing</a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
