@@ -146,7 +146,8 @@ iso42001-uk-eu-rapid-compliance/
 **Diagnostic Finding:** EU AI Act does not apply (no EU exposure). ISO 42001 recommended for NHS procurement credibility.  
 **Path:** Scope Diagnostic (£2,500) → ISO 42001 Rapid Roadmap (£8,000) only. Saved £12,000 vs. full build.  
 
-[View scope determination framework](./examples/healthtech-diagnostic-imaging-diagnostic.md)
+[View scope determination framework](./examples/healthtech-samd-scope-determination.md)
+
 🚨 Not Sure Where to Start? (3-Step Diagnostic)
 
 Step 1: Email compliance.architect@protonmail.com with:
