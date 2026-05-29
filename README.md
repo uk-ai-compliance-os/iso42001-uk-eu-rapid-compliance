@@ -151,7 +151,7 @@ How it works: Email → Diagnostic → Proposal → APPROVE → Private GitHub r
 | **Terms** | 50% on approval, 50% on delivery |
 | **Invoicing** | VAT invoice provided on request |
 | [Contract](CONTRACT.md) | Master Services Agreement |
-| **NDA** | [Mutual NDA](./legal/NDA-mutual-v1.0.pdf) |
+| [NDA](NDA.md) | Mutual NDA |
 | **Delivery** | Private GitHub repository with full documentation suite |
 
 > Full bank details provided upon invoice issuance.
