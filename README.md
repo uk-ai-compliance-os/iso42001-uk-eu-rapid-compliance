@@ -7,6 +7,12 @@
 🎯 **MISSION:** Every UK AI company deserves a fighting chance before August 2. The foundation is free. The implementation is not.
 
 ---
+| **Business Status** |
+
+|Active sole proprietorship |
+
+| **Udyam Registration** | Registered under Ministry of MSME, Government of India |
+
 
 ## 👤 Who Built This
 
@@ -207,9 +213,6 @@ MIT License — free to use, modify, and distribute. Attribution appreciated.
 
 **Disclaimer:** This architecture provides compliance documentation frameworks. It is not legal advice. Adapt to your specific regulatory context and seek independent legal counsel for binding decisions.
 
-| **Business Status** |
-|Active sole proprietorship |
-| **Udyam Registration** | Registered under Ministry of MSME, Government of India |
 
 ## 📧 Contact
 
