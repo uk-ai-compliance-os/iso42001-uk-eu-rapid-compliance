@@ -150,7 +150,7 @@ How it works: Email → Diagnostic → Proposal → APPROVE → Private GitHub r
 | **Payment Methods** | FPS, BACS, or CHAPS (GBP only) |
 | **Terms** | 50% on approval, 50% on delivery |
 | **Invoicing** | VAT invoice provided on request |
-| **Contract** | [Master Services Agreement](./legal/MSA-v1.0.pdf) |
+| [Contract](CONTRACT.md) | Master Services Agreement |
 | **NDA** | [Mutual NDA](./legal/NDA-mutual-v1.0.pdf) |
 | **Delivery** | Private GitHub repository with full documentation suite |
 
