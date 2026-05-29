@@ -1,7 +1,9 @@
 # UK-EU AI Compliance OS — ISO 42001 Rapid Implementation 
 
-⏰ **DEADLINE ALERT:** 67 days until EU AI Act high-risk enforcement (August 2, 2026).  
+⏰ **DEADLINE ALERT:** ~66 days until EU AI Act high-risk enforcement (August 2, 2026).
+
 💰 **COST REALITY:** A Big Four compliance engagement costs £80,000–£150,000 and takes 6–12 months. This architecture gives you the same documentation foundation in 48 hours — for £0.  
+
 🎯 **MISSION:** Every UK AI company deserves a fighting chance before August 2. The foundation is free. The implementation is not.
 
 ---
@@ -11,7 +13,7 @@
 **Rima Banerjee** — AI Compliance Architect  
 Specialist in UK/EU AI regulatory alignment • ISO 42001 • EU AI Act Annex III  
 📧 [compliance.architect@protonmail.com](mailto:compliance.architect@protonmail.com)  
-⏱️ Typical response: < 4 hours (UK business hours, 09:00–18:00 BST)
+⏱️ **Response time:** < 4 hours (Mon–Sat, 08:00–22:00 IST / 03:30–16:30 BST)
 
 *"I built this after watching UK AI founders get quoted £100K+ for ISO 42001 documentation that took 6 months and still failed pre-assessment. The August 2 deadline does not allow that luxury."*
 ---
@@ -20,16 +22,16 @@ Specialist in UK/EU AI regulatory alignment • ISO 42001 • EU AI Act Annex II
 
 **Are you a UK AI company with EU customers and an August 2 deadline?**
 
-→ **YES:** [Skip to diagnostic → £2,500, 48 hours](mailto:compliance.architect@protonmail.com?subject=URGENT%20—%20EU%20AI%20Act%20Diagnostic%20Needed)  
-→ **NOT YET:** ⭐ Star this repo for your compliance team
+→ **YES:** [Email for diagnostic →](mailto:compliance.architect@protonmail.com) £2,500, 48 hours  
+→ **NOT YET:** Download the [free gap-analysis checklist](gap-analysis/self-assessment-checklist.md) and assess your readiness in 20 minutes.
 
 ---
 
 ## 🚨 Free Tools
 
 | Tool | What It Does | Link |
-|------|-------------|------|
-| **EU AI Act Penalty Calculator** | Calculate your fine exposure in 30 seconds | [Use Calculator →](https://uk-ai-compliance-os.github.io/iso42001-uk-eu-rapid-compliance/tools/penalty-calculator/) |
+|------|--------------|------|
+| EU AI Act Penalty Calculator | Calculate your fine exposure in 30 seconds | [Use Calculator →](tools/penalty-calculator/) |
 
 ---
 
@@ -37,7 +39,7 @@ Specialist in UK/EU AI regulatory alignment • ISO 42001 • EU AI Act Annex II
 
 | Without This Architecture | With This Architecture |
 |---------------------------|------------------------|
-| £80,000–£150,000 Big Four engagement | £0 open-source foundation + £8,000–£20,000 targeted implementation |
+| £80,000–£150,000 Big Four engagement | £0 open-source foundation + £2,500–£20,000 targeted implementation |
 | 6–12 months to ISO 42001 readiness | 5–10 days to documented, audit-ready foundation |
 | €35,000,000 EU AI Act penalty exposure | Structured conformity assessment path with evidence registers |
 | No internal audit capability | Audit-ready documentation with pre-mapped ISO 42001 controls |
@@ -87,47 +89,6 @@ Specialist in UK/EU AI regulatory alignment • ISO 42001 • EU AI Act Annex II
 
 ---
 
-iso42001-uk-eu-rapid-compliance/
-├── templates/                  # Sector-specific AI Policy documents (board-ready)
-│   ├── ai-policy-fintech.md
-│   ├── ai-policy-healthtech.md
-│   ├── ai-policy-saas.md
-│   ├── ai-policy-legaltech.md
-│   └── ai-policy-insurtech.md
-
-├── gap-analysis/               # Self-assessment checklists and CLI tools
-│   ├── self-assessment-checklist.md
-│   └── gap-analysis-cli.py
-
-├── risk-registers/             # Pre-built AI risk matrices
-│   └── ai-risk-register-template.md
-
-├── eu-ai-act-mapping/          # Regulatory crosswalks
-│   └── high-risk-systems-crosswalk.md
-
-├── uk-specific/                # BSI, UKAS, ICO, and UK AI White Paper context
-│   └── ukas-certification-body-comparison.md
-
-├── scripts/                    # Automation utilities
-│   └── generate-compliance-report.py
-
-├── docs/                       # Implementation guides and certification roadmaps
-│   ├── getting-started.md
-│   └── iso-42001-certification-roadmap.md
-
-├── examples/                   # Live diagnostic walkthroughs (anonymised)
-│   ├── fintech-credit-scoring-diagnostic.md
-│   └── healthtech-diagnostic-imaging-diagnostic.md
-
-├── tools/                      # Free interactive compliance tools
-│   └── penalty-calculator/
-│       ├── index.html
-│       ├── calculator.js
-│       ├── styles.css
-│       └── README.md
-
-└── CONSULTING.md               # Implementation engagement details
-
 ## 🧠 Live Diagnostic Examples (Free)
 
 ### Example 1: UK Fintech — Credit Scoring AI
@@ -163,9 +124,9 @@ Step 2: Receive 7 tailored diagnostic questions within 4 hours.
 
 Step 3: Receive a flat-fee proposal within 24 hours of your reply. Reply with the word "APPROVE" to begin.
 
-⏱️ Typical response: < 4 hours (UK business hours, 09:00–18:00 BST)
-🚫 No calls. No Calendly. No meetings. Chat-based only.
-📅 Current availability: May–August 2026 sprint slots open.
+⏱️ **Response time:** < 4 hours (Mon–Sat, 08:00–22:00 IST / 03:30–16:30 BST)  
+💬 **Delivery:** Async-first via email and private GitHub repo. Discovery call available upon request for engagements £8,000+.  
+📅 **Current availability:** May–August 2026 sprint slots open.
 
 | Service                                    | What You Get                                                                                                                                   | Investment | Timeline |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- |
@@ -201,7 +162,7 @@ First 2 UK AI companies to engage in June 2026 receive:
    - Case study feature (anonymised) in the open-source architecture
 
 Requirement: Must start diagnostic by June 15, 2026.
-📧 Email compliance.architect@protonmail.com with "Founding Client" in the subject line.
+📧 [Email compliance.architect@protonmail.com](mailto:compliance.architect@protonmail.com) with **"Founding Client"** in the subject line.
 
 🗣️ Regulatory Pulse & Community
 
@@ -209,18 +170,18 @@ Requirement: Must start diagnostic by June 15, 2026.
 Weekly updates on UK/EU AI regulation changes, deadline shifts, and certification body updates.
 Recent topics:
 
--  [May 21] 67 days to EU AI Act enforcement — BSI updates auditor guidance
--  [May 18] EU AI Act high-risk system checklist — what changed this week
--  [May 11] BSI certification body update: new UKAS requirements for ISO 42001
+- [May 28] 66 days to EU AI Act enforcement — BSI updates auditor guidance
+- [May 25] EU AI Act high-risk system checklist — what changed this week
+- [May 18] BSI certification body update: new UKAS requirements for ISO 42001
 
 ⭐ Support This Work
 
 UK AI founders: Starring this repo helps other compliance teams find it before August 2.
 If this architecture saved you £10,000+ in consulting fees or accelerated your compliance programme, please consider:
 
--  ⭐ Star the repository
--  🍴 Fork and customise for your sector
--  💬 Join Discussions to share your implementation journey
+- ⭐ Star the repository
+- 🍴 Fork and customise for your sector
+- 💬 [Join Discussions](../../discussions) to share your implementation journey
 
 📌 Regulatory Alignment Verified Against
 
@@ -240,19 +201,21 @@ If this architecture saved you £10,000+ in consulting fees or accelerated your 
 | Engagement                    | Chat-only consulting, < 4h response time |
 | Business start date           | May 14, 2026                             |
 
-📄 License
+## 📄 License
 
 MIT License — free to use, modify, and distribute. Attribution appreciated.
 
-Disclaimer: This architecture provides compliance documentation frameworks. It is not legal advice. Adapt to your specific regulatory context and seek independent legal counsel for binding decisions.
+**Disclaimer:** This architecture provides compliance documentation frameworks. It is not legal advice. Adapt to your specific regulatory context and seek independent legal counsel for binding decisions.
 
-📧 Contact
+| **Business Status** |
+|Active sole proprietorship |
+| **Udyam Registration** | Registered under Ministry of MSME, Government of India |
 
-📧 compliance.architect@protonmail.com
+## 📧 Contact
 
-✉️ Or copy-paste: compliance.architect@protonmail.com
+📧 **compliance.architect@protonmail.com**
 
-⏱️ Response time: < 4 hours during UK business hours (09:00–18:00 BST)
+⏱️ Response time: < 4 hours (Mon–Sat, 08:00–22:00 IST / 03:30–16:30 BST)
 
 
 ---
