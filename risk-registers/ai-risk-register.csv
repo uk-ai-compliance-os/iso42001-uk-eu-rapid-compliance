@@ -1,0 +1,16 @@
+Risk ID,AI Risk Description,ISO 42001 Control Reference,Control Name,Annex A Clause,Severity,Probability,Residual Risk,Owner,Review Date
+R001,"Bias in automated credit scoring leading to discriminatory lending outcomes",A.5.2,AI system impact assessment,5.2,High,Medium,Medium,AI Governance Lead,2026-09-01
+R002,"Lack of transparency in AI decision-making affecting customer trust and regulatory compliance",A.7.1,AI system transparency and explainability,7.1,High,High,Medium,Compliance Officer,2026-09-01
+R003,"Inadequate data governance causing training data quality issues and model drift",A.6.1,Data for AI systems,6.1,High,Medium,Medium,Data Protection Officer,2026-09-01
+R004,"Unauthorized access to AI models or training datasets (model theft / IP leakage)",A.8.1,Security of AI systems,8.1,Critical,Medium,Low,Security Lead,2026-09-01
+R005,"AI system producing inaccurate or harmful outputs in clinical diagnosis",A.5.1,AI system risk assessment,5.1,Critical,Low,Low,Medical Director,2026-09-01
+R006,"Failure to maintain human oversight in high-risk AI decision loops",A.7.2,Human oversight,7.2,High,High,Medium,Operations Lead,2026-09-01
+R007,"Third-party AI vendor non-compliance with EU AI Act or ISO 42001 requirements",A.9.1,Third-party relationships and supply chain,9.1,High,Medium,Medium,Procurement Lead,2026-09-01
+R008,"Inadequate documentation of AI system lifecycle and version control",A.4.1,AI system life cycle,4.1,Medium,High,Medium,AI Engineering Lead,2026-09-01
+R009,"Privacy breach through AI model memorization of personal data (training data leakage)",A.6.2,Privacy and data protection,6.2,High,Medium,Low,Data Protection Officer,2026-09-01
+R010,"AI system non-conformance with sector-specific regulations (FCA/MHRA/SRA)",A.5.3,Legal and regulatory compliance,5.3,High,Low,Low,Compliance Officer,2026-09-01
+R011,"Insufficient testing and validation before AI system deployment",A.4.2,AI system design and development,4.2,High,Medium,Medium,QA Lead,2026-09-01
+R012,"Lack of continuous monitoring for AI system performance degradation",A.4.3,AI system deployment and operation,4.3,Medium,High,Medium,AI Operations Lead,2026-09-01
+R013,"Inability to trace AI decision audit trail for regulatory investigation",A.7.3,Record keeping and logging,7.3,High,Medium,Medium,IT Audit Lead,2026-09-01
+R014,"Employee misuse of AI tools leading to unauthorized automated decisions",A.8.2,Use of AI systems,8.2,Medium,Medium,Low,HR / Ethics Lead,2026-09-01
+R015,"Failure to update AI risk register after significant system change or new regulation",A.5.4,Risk treatment,5.4,Medium,High,Medium,AI Governance Lead,2026-09-01
