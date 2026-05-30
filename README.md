@@ -9,10 +9,11 @@ https://www.iso.org/standard/81230.html
 [](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689)
 ](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 
-📸 What You Get
-|                    Gap Analysis CLI                    |                      Policy Validator                      |                  Risk Register (CSV)                 |
-| :----------------------------------------------------: | :--------------------------------------------------------: | :--------------------------------------------------: |
-| | [scripts/gap-analyzer.py](scripts/gap-analyzer.py) | | [scripts/policy-validator.py](scripts/policy-validator.py) |  [risk-registers/ai-risk-register.csv](risk-registers/ai-risk-register.csv) | |
+## 📸 What You Get
+
+| Gap Analysis CLI | Policy Validator | Risk Register (CSV) |
+|:---:|:---:|:---:|
+| [scripts/gap-analyzer.py](scripts/gap-analyzer.py) | [scripts/policy-validator.py](scripts/policy-validator.py) | [risk-registers/ai-risk-register.csv](risk-registers/ai-risk-register.csv) |
                       
 
 📦 What's Inside
