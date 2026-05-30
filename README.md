@@ -7,7 +7,7 @@ https://opensource.org/licenses/MIT
 https://www.iso.org/standard/81230.html
 
 [[](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689)  https://eur-lex.europa.eu/eli/reg/2024/1689/oj
-](https://artificialintelligenceact.eu/the-act/)
+(https://artificialintelligenceact.eu/the-act/)
 
 ## 📸 What You Get
 
