@@ -39,9 +39,9 @@ https://www.iso.org/standard/81230.html
 
 🏥 Live Implementation Examples
 
-- **[UK Fintech — Credit Scoring AI](fintech-credit-scoring-diagnostic.md)** — Annex III high-risk determination, 45-day certification roadmap
+- **[UK Fintech — Credit Scoring AI](examples/fintech-credit-scoring-diagnostic.md)** — ...
 - 
-- **[UK Healthtech — Diagnostic Imaging](examples/healthtech-diagnostic-imaging.md)** — MHRA + dual compliance scope, £12,000 saved vs. full build
+- **[UK Healthtech — Diagnostic Imaging](examples/healthtech-samd-scope-determination.md)** — ...
 
 🎯 Who This Helps
 
