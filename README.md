@@ -12,8 +12,8 @@ https://www.iso.org/standard/81230.html
 📸 What You Get
 |                    Gap Analysis CLI                    |                      Policy Validator                      |                  Risk Register (CSV)                 |
 | :----------------------------------------------------: | :--------------------------------------------------------: | :--------------------------------------------------: |
-| ![Gap Analysis](docs/screenshots/gap-analysis-cli.png) | ![Policy Validator](docs/screenshots/policy-validator.png) | ![Risk Register](docs/screenshots/risk-register.png) |
-|                `scripts/gap-analyzer.py`               |                `scripts/policy-validator.py`               |         `risk-registers/ai-risk-register.csv`        |
+| | [scripts/gap-analyzer.py](scripts/gap-analyzer.py) | | [scripts/policy-validator.py](scripts/policy-validator.py) |  [risk-registers/ai-risk-register.csv](risk-registers/ai-risk-register.csv) | |
+                      
 
 📦 What's Inside
 
