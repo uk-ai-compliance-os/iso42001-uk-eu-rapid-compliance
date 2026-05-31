@@ -74,6 +74,36 @@ Need the documentation foundation faster than your internal team can build it? V
 
 Typical engagement: custom AIMS architecture, tailored policy suite, evidence repository structure, and auditor-ready deliverables. Delivered via private repository with async review cycles.
 
+---
+
+🚀 Emergency Async Implementation — No Calls, No Meetings
+
+Don't have 6 months or £100K for a Big Four consultancy? I deliver audit-ready ISO 42001 documentation in 7 days — entirely via email and private GitHub repo.
+
+**How to start:**
+1. Email `compliance.architect@protonmail.com`
+2. **Subject line must be:** `IMPLEMENT-[CompanyName]-[Sector]`  
+   *(Example: `IMPLEMENT-AcmeFintech-Fintech`)*
+3. Receive 5 diagnostic questions within 4 hours
+4. Reply with answers → Get flat-fee proposal within 12 hours
+5. Reply **"APPROVE"** → 50% invoice → Delivery starts
+
+**What you get:**
+- Custom AIMS architecture mapped to your AI systems
+- Sector-specific policy suite (tailored, not templated)
+- Pre-mapped risk register with evidence structures
+- Internal audit plan + certification body prep
+- Delivered in private GitHub repo with async review
+
+**Investment:** £2,000 flat fee (first 3 UK clients in June 2026 only)  
+**Timeline:** 7 days async delivery  
+**Payment:** 50% upfront, 50% on delivery via FPS/BACS to UK account  
+**Terms:** Master Services Agreement + Mutual NDA included
+
+*No Calendly. No Zoom. No "discovery calls." Just email, deliverables, and compliance.*
+
+---
+
 📊 Regulatory Alignment
 
 Verified against:
