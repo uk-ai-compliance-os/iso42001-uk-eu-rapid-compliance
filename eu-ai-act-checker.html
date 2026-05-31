@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EU AI Act Article 50 Readiness Checker | UK AI Compliance OS</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 20px 30px;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            color: #f8fafc;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .header .deadline {
+            color: #fbbf24;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 12px;
+        }
+        .header p {
+            color: #94a3b8;
+            margin-top: 16px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 28px;
+        }
+        .question:last-of-type { margin-bottom: 0; }
+        .question-label {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 14px;
+            display: block;
+            line-height: 1.4;
+        }
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            position: relative;
+        }
+        .option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .option label {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 2px solid rgba(148, 163, 184, 0.15);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+        .option label:hover {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.08);
+        }
+        .option input[type="radio"]:checked + label {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.12);
+            color: #fff;
+        }
+        .option label::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid #64748b;
+            border-radius: 50%;
+            margin-right: 12px;
+            display: inline-block;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .option input[type="radio"]:checked + label::before {
+            border-color: #3b82f6;
+            background: #3b82f6;
+            box-shadow: inset 0 0 0 4px #1e293b;
+        }
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        .result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .badge {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .badge.red {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 2px solid rgba(239, 68, 68, 0.3);
+        }
+        .badge.yellow {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+        }
+        .badge.green {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border: 2px solid rgba(34, 197, 94, 0.3);
+        }
+        .score-value {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+        .score-label {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+        .urgent-steps {
+            text-align: left;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .urgent-steps h3 {
+            color: #fbbf24;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+        .urgent-steps ul {
+            list-style: none;
+        }
+        .urgent-steps li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+        .urgent-steps li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+        }
+        .email-capture {
+            margin-top: 28px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .email-capture h3 {
+            color: #f8fafc;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        .email-capture p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .email-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 2px solid rgba(148, 163, 184, 0.2);
+            border-radius: 10px;
+            color: #f1f5f9;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        .email-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .hidden { display: none; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.4rem; }
+            .card { padding: 24px 20px; }
+            .score-value { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>EU AI Act Article 50 Readiness Checker</h1>
+            <div class="deadline">⏰ 63 days until August 2, 2026</div>
+            <p>Built for UK AI companies with EU users. Check your risk in 60 seconds. No signup required.</p>
+        </div>
+
+        <div class="card" id="quizCard">
+            <form id="checkerForm">
+                <div class="question">
+                    <span class="question-label"><span class="question-number">1</span>Does your AI system interact with EU users or process EU resident data?</span>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q1" id="q1_yes" value="3" required>
+                            <label for="q1_yes">Yes — we have EU customers, users, or process EU data</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q1" id="q1_dk" value="2">
+                            <label for="q1_dk">Not sure / planning EU expansion</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q1" id="q1_no" value="0">
+                            <label for="q1_no">No — UK only, no EU exposure</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-label"><span class="question-number">2</span>Is your AI used for credit scoring, recruitment, health diagnostics, or biometric identification?</span>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q2" id="q2_yes" value="3" required>
+                            <label for="q2_yes">Yes — one or more of these high-risk use cases</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" id="q2_dk" value="1">
+                            <label for="q2_dk">Not sure if our use case is high-risk</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" id="q2_no" value="0">
+                            <label for="q2_no">No — general SaaS, marketing, or low-risk AI</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-label"><span class="question-number">3</span>Do you have published technical documentation for your AI system?</span>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3_yes" value="0" required>
+                            <label for="q3_yes">Yes — complete technical docs available</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3_partial" value="2">
+                            <label for="q3_partial">Partial — some docs exist but incomplete</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3_no" value="3">
+                            <label for="q3_no">No — no formal technical documentation</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-label"><span class="question-number">4</span>Do you have an AI governance policy or ISO 42001 documentation?</span>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q4" id="q4_yes" value="0" required>
+                            <label for="q4_yes">Yes — documented AI governance in place</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q4" id="q4_draft" value="2">
+                            <label for="q4_draft">Draft / informal — not formally documented</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q4" id="q4_no" value="3">
+                            <label for="q4_no">No — no AI governance policy exists</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-label"><span class="question-number">5</span>What is your current company stage?</span>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q5" id="q5_solo" value="1" required>
+                            <label for="q5_solo">Solo founder / pre-revenue</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q5" id="q5_startup" value="1">
+                            <label for="q5_startup">Startup (funded or revenue-generating)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q5" id="q5_scaleup" value="0">
+                            <label for="q5_scaleup">Scaleup / Enterprise (50+ employees)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn" onclick="calculateScore()">Check My Risk →</button>
+            </form>
+        </div>
+
+        <div class="card result" id="resultCard">
+            <div id="resultContent"></div>
+
+            <div class="email-capture">
+                <h3>📧 Get Your Personalised 90-Day Action Checklist</h3>
+                <p>Based on your score, I'll send you a tailored PDF with exact next steps + access to the free ISO 42001 toolkit.</p>
+                <form action="https://formsubmit.co/compliance.architect@protonmail.com" method="POST">
+                    <input type="hidden" name="_subject" id="emailSubject" value="New EU AI Act Checker Submission">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://uk-ai-compliance-os.github.io/iso42001-uk-eu-rapid-compliance/thanks.html">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <input type="email" name="email" class="email-input" placeholder="your@company.com" required>
+                    <input type="hidden" name="risk_score" id="formScore" value="">
+                    <input type="hidden" name="risk_level" id="formLevel" value="">
+
+                    <button type="submit" class="btn">Send My Checklist →</button>
+                </form>
+                <p style="margin-top: 12px; font-size: 0.85rem; color: #64748b;">No spam. Unsubscribe anytime. Delivered within 4 hours.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Built by <a href="https://github.com/uk-ai-compliance-os/iso42001-uk-eu-rapid-compliance" target="_blank">UK-EU AI Compliance OS</a> | Async ISO 42001 implementation for UK AI companies</p>
+            <p style="margin-top: 8px;">Not legal advice. <a href="mailto:compliance.architect@protonmail.com">compliance.architect@protonmail.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const form = document.getElementById('checkerForm');
+            const formData = new FormData(form);
+
+            let score = 0;
+            let answered = 0;
+            for (let [key, value] of formData.entries()) {
+                if (key.startsWith('q')) {
+                    score += parseInt(value);
+                    answered++;
+                }
+            }
+
+            if (answered < 5) {
+                alert('Please answer all 5 questions first.');
+                return;
+            }
+
+            let level, badgeClass, title, steps;
+
+            if (score >= 8) {
+                level = 'RED';
+                badgeClass = 'red';
+                title = 'High Risk — Immediate Action Required';
+                steps = [
+                    'You likely need full ISO 42001 AIMS documentation before August 2. Start with the gap analysis immediately.',
+                    'Your AI system probably falls under EU AI Act Annex III high-risk obligations. A conformity assessment is mandatory.',
+                    'Engage a compliance specialist within 7 days. The traditional 6-month timeline does not exist for you.'
+                ];
+            } else if (score >= 4) {
+                level = 'YELLOW';
+                badgeClass = 'yellow';
+                title = 'Medium Risk — Prepare Now';
+                steps = [
+                    'You have partial coverage but critical gaps remain. Complete the ISO 42001 self-assessment checklist this week.',
+                    'Determine definitively whether your AI system is high-risk under Annex III. Ambiguity is not a defence.',
+                    'Build your technical documentation and AI governance policy within 30 days to avoid last-minute panic.'
+                ];
+            } else {
+                level = 'GREEN';
+                badgeClass = 'green';
+                title = 'Lower Risk — Stay Proactive';
+                steps = [
+                    'Your immediate exposure is limited, but monitor EU expansion plans closely. Article 50 applies to all EU-facing systems.',
+                    'Download the free ISO 42001 toolkit to build internal capability before any client or investor asks for it.',
+                    'Schedule a quarterly review. Regulations shift rapidly — today's green can become next quarter's red.'
+                ];
+            }
+
+            document.getElementById('resultContent').innerHTML = `
+                <div class="badge ${badgeClass}">${level} RISK</div>
+                <div class="score-value">${score}/12</div>
+                <div class="score-label">${title}</div>
+                <div class="urgent-steps">
+                    <h3>🚨 Your 3 Urgent Next Steps</h3>
+                    <ul>
+                        ${steps.map(s => `<li>${s}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            document.getElementById('formScore').value = score;
+            document.getElementById('formLevel').value = level;
+            document.getElementById('emailSubject').value = `EU AI Act Checker: ${level} RISK (Score: ${score}/12)`;
+
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('resultCard').style.display = 'block';
+            document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
