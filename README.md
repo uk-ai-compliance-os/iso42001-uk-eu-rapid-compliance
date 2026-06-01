@@ -1,5 +1,7 @@
 ISO 42001 Rapid Implementation Toolkit
 
+🚨 **[Check Your EU AI Act Risk in 60 Seconds — Free Tool →](https://uk-ai-compliance-os.github.io/iso42001-uk-eu-rapid-compliance/eu-ai-act-checker.html)**
+
 ⏰ REGULATORY UPDATE: EU AI Act high-risk enforcement shifted to Dec 2027 for most systems. But Article 50 Transparency still hits **2 Aug 2026**. UK AI companies with EU users must publish technical documentation by this date.
 
 Open-source compliance architecture for UK and EU AI companies building audit-ready AI governance — without the six-figure consultancy bill.
