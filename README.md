@@ -4,7 +4,7 @@ ISO 42001 Rapid Implementation Toolkit
 
 [![Free Audit](https://img.shields.io/badge/🚨_Free_2--Minute_EU_AI_Act_Audit-Click_Here-green)]([YOUR_TALLY_LINK](https://tally.so/r/RGkQrv))
 
-🎯 **[Get Your Free 2-Minute EU AI Act Readiness Audit →]([YOUR_TALLY_LINK](https://tally.so/r/RGkQrv))**
+<a href="(https://tally.so/r/RGkQrv)">📧 GET YOUR FREE AUDIT SCORE FIRST →</a>
 
 🚨 **[Check Your EU AI Act Risk in 60 Seconds — Free Tool →](https://uk-ai-compliance-os.github.io/iso42001-uk-eu-rapid-compliance/eu-ai-act-checker.html)**
 
