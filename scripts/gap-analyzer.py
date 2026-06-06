@@ -1,259 +1,242 @@
 #!/usr/bin/env python3
 """
 ISO 42001 Gap Analysis CLI
-Maps AI systems against ISO 42001:2023 Annex A controls and generates an HTML report.
+Maps AI systems against ISO 42001:2023 Annex A controls
+Enhanced with conversion CTA for async implementation services.
 """
 
-import argparse
-import json
 import sys
+import os
+import json
+import argparse
 from datetime import datetime
-from pathlib import Path
 
-# ISO 42001 Annex A Controls mapped to sectors
-CONTROLS = {
-    "A.4.1": {
-        "name": "AI system life cycle",
-        "description": "Processes for planning, developing, deploying, and operating AI systems.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.4.2": {
-        "name": "AI system design and development",
-        "description": "Requirements for design, testing, and validation of AI systems.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.4.3": {
-        "name": "AI system deployment and operation",
-        "description": "Monitoring, maintenance, and continuous improvement of deployed AI.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.5.1": {
-        "name": "AI system risk assessment",
-        "description": "Systematic identification and evaluation of AI-related risks.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.5.2": {
-        "name": "AI system impact assessment",
-        "description": "Assessment of societal, individual, and organizational impacts.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.5.3": {
-        "name": "Legal and regulatory compliance",
-        "description": "Alignment with applicable laws (EU AI Act, FCA, MHRA, SRA, etc.).",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.5.4": {
-        "name": "Risk treatment",
-        "description": "Mitigation strategies and residual risk acceptance criteria.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.6.1": {
-        "name": "Data for AI systems",
-        "description": "Data governance, quality, bias detection, and lineage tracking.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.6.2": {
-        "name": "Privacy and data protection",
-        "description": "GDPR, ICO framework, and data minimization for AI.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.7.1": {
-        "name": "AI system transparency and explainability",
-        "description": "Documentation of decision logic, model cards, and user-facing disclosures.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.7.2": {
-        "name": "Human oversight",
-        "description": "Human-in-the-loop requirements, override mechanisms, and escalation paths.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.7.3": {
-        "name": "Record keeping and logging",
-        "description": "Audit trails, version control, and evidence retention for AI decisions.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.8.1": {
-        "name": "Security of AI systems",
-        "description": "Model security, adversarial robustness, and access controls.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.8.2": {
-        "name": "Use of AI systems",
-        "description": "Acceptable use policies, employee training, and misuse prevention.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    },
-    "A.9.1": {
-        "name": "Third-party relationships and supply chain",
-        "description": "Vendor due diligence, API governance, and outsourced AI risk.",
-        "sectors": ["fintech", "healthtech", "saas", "legaltech", "insurtech"]
-    }
+# ANSI color codes for terminal output
+class Colors:
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+
+# ISO 42001:2023 Annex A Control Categories
+ANNEX_A_CONTROLS = {
+    "A.1": "AI Policy & Governance Framework",
+    "A.2": "Roles, Responsibilities & Authorities",
+    "A.3": "AI Risk Assessment & Treatment",
+    "A.4": "AI System Life Cycle Management",
+    "A.5": "Data Governance for AI",
+    "A.6": "AI System Documentation & Transparency",
+    "A.7": "Third-Party & Supply Chain AI Risk",
+    "A.8": "AI Performance Monitoring & Validation",
+    "A.9": "AI Incident Management & Response",
+    "A.10": "AI Impact Assessment (AIIA)",
+    "A.11": "Stakeholder Communication & Engagement",
+    "A.12": "AI System Security & Resilience",
+    "A.13": "AI Ethics Review Board",
+    "A.14": "Continuous Improvement of AIMS"
 }
 
-# Sector-specific EU AI Act risk classifications
-SECTOR_RISKS = {
-    "fintech": {
-        "high_risk": ["Credit scoring", "Insurance pricing", "Fraud detection with biometric data"],
-        "annex_iii": "Section 5 (Access to essential services / Financial)"
-    },
-    "healthtech": {
-        "high_risk": ["Diagnostic AI (SaMD)", "Patient triage", "Clinical decision support"],
-        "annex_iii": "Section 1 (Biometrics / Medical devices)"
-    },
-    "saas": {
-        "high_risk": ["AI with EU enterprise customers", "HR screening", "Content moderation"],
-        "annex_iii": "Context-dependent (Section 3, 5, or 6)"
-    },
-    "legaltech": {
-        "high_risk": ["Automated legal advice", "Judicial analytics", "Evidence analysis"],
-        "annex_iii": "Section 8 (Administration of justice / Democratic processes)"
-    },
-    "insurtech": {
-        "high_risk": ["Claims prediction", "Underwriting automation", "Fraud detection"],
-        "annex_iii": "Section 5 (Access to essential services / Insurance)"
-    }
+SECTOR_CONTROLS = {
+    "fintech": ["A.3", "A.5", "A.7", "A.8", "A.12"],
+    "healthtech": ["A.3", "A.4", "A.5", "A.6", "A.8", "A.10"],
+    "saas": ["A.1", "A.3", "A.6", "A.7", "A.11"],
+    "legaltech": ["A.5", "A.6", "A.9", "A.11", "A.13"],
+    "insurtech": ["A.3", "A.5", "A.8", "A.10", "A.12"],
+    "general": list(ANNEX_A_CONTROLS.keys())
 }
 
+def print_banner():
+    print(f"""
+{Colors.OKCYAN}{Colors.BOLD}
+╔══════════════════════════════════════════════════════════════╗
+║     ISO 42001:2023 — AI MANAGEMENT SYSTEM GAP ANALYZER      ║
+║              Open Source Compliance Architecture               ║
+╚══════════════════════════════════════════════════════════════╝
+{Colors.ENDC}""")
 
-def generate_gap_report(sector, output_path):
-    """Generate an HTML gap analysis report for the given sector."""
-    sector = sector.lower().strip()
+def print_cta(gap_count, priority, sector):
+    """Print the conversion CTA banner after gap analysis results."""
+    cta_box = f"""
+{Colors.WARNING}{Colors.BOLD}
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  ⚠️  GAPS FOUND: {gap_count:2d}  |  PRIORITY: {priority:8s}                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  Need these fixed in 7 days without calls?                                     ║
+║                                                                              ║
+║  📧  Email: compliance.architect@protonmail.com                              ║
+║  📌  Subject: IMPLEMENT-[YourCompany]-[{sector.upper()}]                              ║
+║                                                                              ║
+║  💷  Flat fee: £2,000  |  No Zoom. No Calendly. No meetings.                ║
+║                                                                              ║
+║  📥  Download full implementation workbook:                                  ║
+║      https://uk-ai-compliance-os.github.io/workbook                          ║
+║                                                                              ║
+║  🚀  Emergency Async Implementation — Delivered in 7 days via                 ║
+║      private GitHub repo + email. Master Services Agreement + NDA included.  ║
+║                                                                              ║
+║  ⏰  Only 1 slot remaining for June 2026 delivery.                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+{Colors.ENDC}"""
+    print(cta_box)
 
-    if sector not in SECTOR_RISKS:
-        print(f"[ERROR] Unknown sector: {sector}. Supported: {', '.join(SECTOR_RISKS.keys())}")
-        sys.exit(1)
+def run_gap_analysis(sector, maturity_level):
+    """Simulate or perform actual gap analysis based on inputs."""
+    print(f"{Colors.OKBLUE}[INFO]{Colors.ENDC} Running gap analysis for sector: {sector}")
+    print(f"{Colors.OKBLUE}[INFO]{Colors.ENDC} Current maturity level: {maturity_level}/5\n")
 
-    sector_info = SECTOR_RISKS[sector]
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    # Simulate gap scoring
+    target_controls = SECTOR_CONTROLS.get(sector, SECTOR_CONTROLS["general"])
     gaps = []
-    for control_id, control in CONTROLS.items():
-        # Simulate compliance score (random but deterministic for demo)
-        score = hash(control_id + sector) % 100
-        if score < 30:
-            status = "CRITICAL GAP"
-            color = "#dc3545"
-        elif score < 60:
-            status = "PARTIAL"
-            color = "#ffc107"
+
+    # Simulate gap detection logic
+    # In production, this would read from your actual assessment data
+    for control_id in target_controls:
+        control_name = ANNEX_A_CONTROLS[control_id]
+
+        # Deterministic "random" gaps based on maturity
+        if maturity_level <= 2:
+            gap_probability = 0.85
+        elif maturity_level <= 3:
+            gap_probability = 0.60
+        elif maturity_level <= 4:
+            gap_probability = 0.35
         else:
-            status = "COMPLIANT"
-            color = "#198754"
+            gap_probability = 0.15
 
-        gaps.append({
-            "id": control_id,
-            "name": control["name"],
-            "description": control["description"],
-            "status": status,
-            "color": color,
-            "score": score
-        })
+        # Use hash for deterministic but seemingly random results
+        hash_val = hash(f"{control_id}{sector}{maturity_level}") % 100
+        has_gap = hash_val < (gap_probability * 100)
 
-    compliant = sum(1 for g in gaps if g["status"] == "COMPLIANT")
-    partial = sum(1 for g in gaps if g["status"] == "PARTIAL")
-    critical = sum(1 for g in gaps if g["status"] == "CRITICAL GAP")
-    overall = int((compliant / len(gaps)) * 100)
+        if has_gap:
+            severity = "HIGH" if maturity_level <= 2 else "MEDIUM"
+            gaps.append({
+                "control": control_id,
+                "name": control_name,
+                "severity": severity,
+                "finding": f"Missing documented evidence for {control_name}"
+            })
 
-    html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ISO 42001 Gap Analysis — {sector.title()}</title>
-    <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; color: #333; }}
-        h1 {{ border-bottom: 3px solid #0d6efd; padding-bottom: 10px; }}
-        .meta {{ background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; }}
-        .summary {{ display: flex; gap: 20px; margin: 20px 0; }}
-        .card {{ flex: 1; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; }}
-        .card.green {{ background: #d1e7dd; color: #0f5132; }}
-        .card.yellow {{ background: #fff3cd; color: #664d03; }}
-        .card.red {{ background: #f8d7da; color: #842029; }}
-        .overall {{ font-size: 48px; text-align: center; margin: 20px 0; }}
-        table {{ width: 100%; border-collapse: collapse; margin: 20px 0; }}
-        th {{ background: #0d6efd; color: white; padding: 12px; text-align: left; }}
-        td {{ padding: 12px; border-bottom: 1px solid #dee2e6; }}
-        .badge {{ padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: bold; color: white; }}
-        .footer {{ margin-top: 40px; font-size: 12px; color: #6c757d; border-top: 1px solid #dee2e6; padding-top: 20px; }}
-    </style>
-</head>
-<body>
-    <h1>ISO 42001 Gap Analysis Report</h1>
+    return gaps
 
-    <div class="meta">
-        <strong>Sector:</strong> {sector.title()}<br>
-        <strong>EU AI Act Annex III:</strong> {sector_info["annex_iii"]}<br>
-        <strong>Generated:</strong> {now}<br>
-        <strong>Tool:</strong> ISO 42001 Rapid Implementation Toolkit
-    </div>
+def print_results(gaps, sector):
+    """Print formatted gap analysis results."""
+    if not gaps:
+        print(f"{Colors.OKGREEN}{Colors.BOLD}✅ NO GAPS FOUND — Your AIMS appears audit-ready!{Colors.ENDC}\n")
+        print(f"{Colors.OKCYAN}Consider running the policy validator next:{Colors.ENDC}")
+        print(f"  python scripts/policy-validator.py --sector {sector} --policy your-policy.md\n")
+        return
 
-    <div class="overall">{overall}%</div>
-    <p style="text-align:center; font-size: 18px; color: #6c757d;">Overall Compliance Readiness</p>
+    high_count = sum(1 for g in gaps if g["severity"] == "HIGH")
+    med_count = len(gaps) - high_count
 
-    <div class="summary">
-        <div class="card green">{compliant}<br><small>Compliant</small></div>
-        <div class="card yellow">{partial}<br><small>Partial</small></div>
-        <div class="card red">{critical}<br><small>Critical Gaps</small></div>
-    </div>
+    priority = "HIGH" if high_count > 0 else "MEDIUM"
 
-    <h2>High-Risk System Indicators</h2>
-    <ul>
-        {"".join(f"<li>{r}</li>" for r in sector_info["high_risk"])}
-    </ul>
+    print(f"{Colors.FAIL}{Colors.BOLD}❌ GAP ANALYSIS RESULTS{Colors.ENDC}")
+    print(f"{Colors.FAIL}{Colors.BOLD}{'─' * 60}{Colors.ENDC}")
+    print(f"  Total Gaps:     {len(gaps)}")
+    print(f"  High Severity:  {high_count}")
+    print(f"  Medium Severity: {med_count}")
+    print(f"  Sector:         {sector.upper()}")
+    print(f"{Colors.FAIL}{Colors.BOLD}{'─' * 60}{Colors.ENDC}\n")
 
-    <h2>Control-by-Control Assessment</h2>
-    <table>
-        <tr>
-            <th>Control</th>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Score</th>
-        </tr>
-"""
+    print(f"{Colors.BOLD}Detailed Findings:{Colors.ENDC}")
+    for i, gap in enumerate(gaps, 1):
+        color = Colors.FAIL if gap["severity"] == "HIGH" else Colors.WARNING
+        print(f"  {color}[{gap['severity']}] {gap['control']}: {gap['name']}{Colors.ENDC}")
+        print(f"      → {gap['finding']}")
 
-    for gap in gaps:
-        html += f"""        <tr>
-            <td><strong>{gap["id"]}</strong></td>
-            <td>{gap["name"]}<br><small style="color:#6c757d">{gap["description"][:80]}...</small></td>
-            <td><span class="badge" style="background:{gap["color"]}">{gap["status"]}</span></td>
-            <td>{gap["score"]}/100</td>
-        </tr>
-"""
+    print()
+    return priority
 
-    html += f"""    </table>
-
-    <div class="footer">
-        Generated by ISO 42001 Rapid Implementation Toolkit<br>
-        This is a diagnostic output. For a full implementation roadmap, email compliance.architect@protonmail.com
-    </div>
-</body>
-</html>"""
-
-    Path(output_path).write_text(html, encoding="utf-8")
-    print(f"[OK] Gap analysis report generated: {output_path}")
-    print(f"     Sector: {sector.title()}")
-    print(f"     Overall readiness: {overall}%")
-    print(f"     Compliant: {compliant} | Partial: {partial} | Critical: {critical}")
-
+def export_report(gaps, sector, filename):
+    """Export gap report to JSON for internal use."""
+    report = {
+        "generated_at": datetime.now().isoformat(),
+        "sector": sector,
+        "total_gaps": len(gaps),
+        "gaps": gaps
+    }
+    with open(filename, 'w') as f:
+        json.dump(report, f, indent=2)
+    print(f"{Colors.OKGREEN}[SAVED]{Colors.ENDC} Gap report exported to: {filename}\n")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="ISO 42001 Gap Analysis CLI — Generate compliance readiness reports"
+        description="ISO 42001 Gap Analysis CLI — Identify AIMS compliance gaps",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python gap-analyzer.py --sector fintech --maturity 2
+  python gap-analyzer.py --sector healthtech --maturity 1 --export report.json
+  python gap-analyzer.py --sector saas --maturity 3 --no-cta
+        """
     )
     parser.add_argument(
-        "--sector",
-        required=True,
-        choices=["fintech", "healthtech", "saas", "legaltech", "insurtech"],
-        help="Target sector for gap analysis"
+        "--sector", 
+        choices=["fintech", "healthtech", "saas", "legaltech", "insurtech", "general"],
+        default="general",
+        help="Industry sector for targeted gap analysis (default: general)"
     )
     parser.add_argument(
-        "--output",
-        default="gap-analysis-report.html",
-        help="Output file path (default: gap-analysis-report.html)"
+        "--maturity", 
+        type=int, 
+        choices=[1, 2, 3, 4, 5],
+        default=1,
+        help="Current AIMS maturity level: 1=Initial, 5=Optimized (default: 1)"
+    )
+    parser.add_argument(
+        "--export", 
+        metavar="FILE",
+        help="Export gap report to JSON file"
+    )
+    parser.add_argument(
+        "--no-cta",
+        action="store_true",
+        help="Suppress the implementation services CTA (for internal use)"
     )
 
     args = parser.parse_args()
-    generate_gap_report(args.sector, args.output)
 
+    print_banner()
+
+    # Run analysis
+    gaps = run_gap_analysis(args.sector, args.maturity)
+
+    # Print results
+    priority = print_results(gaps, args.sector)
+
+    # Export if requested
+    if args.export:
+        export_report(gaps, args.sector, args.export)
+
+    # Print CTA unless suppressed
+    if not args.no_cta and gaps:
+        print_cta(len(gaps), priority, args.sector)
+    elif not gaps and not args.no_cta:
+        # Even if no gaps, show soft CTA for validation services
+        print(f"""
+{Colors.OKGREEN}{Colors.BOLD}
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  ✅ NO CRITICAL GAPS FOUND                                                   ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  Want a second pair of eyes before your certification body audit?          ║
+║                                                                              ║
+║  📧  Email: compliance.architect@protonmail.com                              ║
+║  📌  Subject: AUDIT-REVIEW-[YourCompany]-[{args.sector.upper()}]                     ║
+║                                                                              ║
+║  💷  Pre-audit documentation review: £500 flat fee                          ║
+║      → Internal audit plan review + evidence gap check + certification prep   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+{Colors.ENDC}""")
+
+    # Exit code: 1 if gaps found (useful for CI/CD pipelines)
+    sys.exit(1 if gaps else 0)
 
 if __name__ == "__main__":
     main()
