@@ -1,155 +1,354 @@
 #!/usr/bin/env python3
 """
-ISO 42001 Policy Validator
-Checks sector-specific AI policy documents for required ISO 42001:2023 clauses.
+ISO 42001 Policy Validator CLI
+Checks sector-specific policies for missing ISO 42001:2023 clauses
+Enhanced with conversion CTA for full policy suite delivery.
 """
 
-import argparse
-import re
 import sys
-from pathlib import Path
+import os
+import re
+import argparse
+from datetime import datetime
 
-# ISO 42001 required policy sections mapped to controls
-REQUIRED_SECTIONS = {
-    "A.4.1": ["life cycle", "planning", "development process", "deployment"],
-    "A.4.2": ["design", "testing", "validation", "verification"],
-    "A.4.3": ["monitoring", "maintenance", "operation", "continuous improvement"],
-    "A.5.1": ["risk assessment", "risk identification", "risk evaluation"],
-    "A.5.2": ["impact assessment", "societal impact", "individual impact"],
-    "A.5.3": ["legal compliance", "regulatory compliance", "EU AI Act", "applicable law"],
-    "A.5.4": ["risk treatment", "mitigation", "residual risk", "risk acceptance"],
-    "A.6.1": ["data governance", "data quality", "training data", "data lineage"],
-    "A.6.2": ["privacy", "data protection", "GDPR", "personal data"],
-    "A.7.1": ["transparency", "explainability", "model card", "decision logic"],
-    "A.7.2": ["human oversight", "human-in-the-loop", "override", "escalation"],
-    "A.7.3": ["record keeping", "audit trail", "logging", "version control"],
-    "A.8.1": ["security", "model security", "adversarial", "access control"],
-    "A.8.2": ["acceptable use", "employee training", "misuse", "usage policy"],
-    "A.9.1": ["third-party", "vendor", "supply chain", "API", "outsourced"]
+# ANSI color codes
+class Colors:
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+
+# ISO 42001:2023 required policy clauses mapped by sector
+POLICY_REQUIREMENTS = {
+    "fintech": {
+        "required_clauses": [
+            "AI Risk Appetite Statement",
+            "Model Risk Management (MRM) Framework",
+            "Algorithmic Trading Controls",
+            "Credit Scoring Fairness & Bias Testing",
+            "Anti-Money Laundering (AML) AI Validation",
+            "FCA FG 23/3 Alignment Declaration",
+            "Data Protection Impact Assessment (DPIA)",
+            "AI Incident Escalation Matrix",
+            "Third-Party AI Vendor Due Diligence",
+            "Customer Rights & Explainability Policy"
+        ],
+        "keywords": [
+            "risk appetite", "model risk", "algorithmic trading", "fairness",
+            "bias testing", "aml", "fca", "dpia", "incident escalation",
+            "third-party", "explainability", "customer rights"
+        ]
+    },
+    "healthtech": {
+        "required_clauses": [
+            "Clinical Validation & SaMD Classification",
+            "MHRA Software as Medical Device Registration",
+            "Patient Safety Risk Management (ISO 14971)",
+            "Diagnostic AI Performance Monitoring",
+            "Healthcare Data Governance (NHS DCB0129)",
+            "Clinical Decision Support Transparency",
+            "Adverse Event Reporting to MHRA",
+            "Algorithm Change Control Procedure",
+            "Patient Consent for AI-Assisted Diagnosis",
+            "Cybersecurity for Connected Medical Devices"
+        ],
+        "keywords": [
+            "clinical validation", "samd", "mhra", "patient safety", "iso 14971",
+            "diagnostic", "nhs", "dcbo129", "adverse event", "change control",
+            "patient consent", "cybersecurity"
+        ]
+    },
+    "saas": {
+        "required_clauses": [
+            "EU AI Act High-Risk System Classification",
+            "Subprocessor & AI Vendor List",
+            "Customer Data Processing for AI Training",
+            "API Abuse Detection & Rate Limiting",
+            "Multi-Tenant AI Isolation Controls",
+            "Service Level Objectives for AI Features",
+            "Model Versioning & Rollback Procedure",
+            "User-Facing AI Disclosure Requirements",
+            "Data Retention for AI Model Inputs",
+            "Cross-Border Data Transfer Safeguards"
+        ],
+        "keywords": [
+            "eu ai act", "high-risk", "subprocessor", "vendor list", "data processing",
+            "api abuse", "rate limiting", "multi-tenant", "isolation", "slo",
+            "model versioning", "rollback", "disclosure", "data retention", "transfer"
+        ]
+    },
+    "legaltech": {
+        "required_clauses": [
+            "SRA Code of Conduct AI Competence Requirement",
+            "Legal Professional Privilege Preservation",
+            "Client Confidentiality in AI Processing",
+            "COLP/COFA AI Oversight Responsibilities",
+            "AI-Generated Advice Disclaimer & Review",
+            "Conflict Check Integration with AI Tools",
+            "Billing Transparency for AI-Assisted Work",
+            "Document Retention & AI Audit Trail",
+            "Law Society Technology Guidance Compliance",
+            "AI Bias in Legal Outcomes Monitoring"
+        ],
+        "keywords": [
+            "sra", "competence", "privilege", "confidentiality", "colp", "cofa",
+            "oversight", "disclaimer", "review", "conflict check", "billing",
+            "transparency", "retention", "audit trail", "law society", "bias"
+        ]
+    },
+    "insurtech": {
+        "required_clauses": [
+            "FCA/PRA AI Governance Expectations",
+            "Claims Prediction Model Fairness Testing",
+            "Underwriting Automation Human-in-the-Loop",
+            "Pricing Algorithm Discrimination Monitoring",
+            "Policyholder Notification of AI Use",
+            "Model Risk Management for Actuarial AI",
+            "Solvency II Data Quality for AI Inputs",
+            "Fraud Detection AI False Positive Handling",
+            "Customer Complaint Routing for AI Decisions",
+            "AI System Stress Testing & Scenario Analysis"
+        ],
+        "keywords": [
+            "fca", "pra", "claims prediction", "fairness", "underwriting",
+            "human-in-the-loop", "pricing", "discrimination", "policyholder",
+            "notification", "actuarial", "solvency ii", "fraud detection",
+            "false positive", "complaint", "stress testing"
+        ]
+    },
+    "general": {
+        "required_clauses": [
+            "AI Policy Statement & Strategic Objectives",
+            "AI Risk Assessment Procedure",
+            "AI System Life Cycle Governance",
+            "Data Quality Management for AI",
+            "AI Transparency & Explainability Policy",
+            "Third-Party AI Risk Management",
+            "AI Performance Monitoring & Validation",
+            "AI Incident Response & Reporting",
+            "AI Ethics Review & Stakeholder Engagement",
+            "Continuous Improvement of AI Management System"
+        ],
+        "keywords": [
+            "policy statement", "risk assessment", "life cycle", "data quality",
+            "transparency", "explainability", "third-party", "performance",
+            "monitoring", "incident response", "ethics", "stakeholder", "improvement"
+        ]
+    }
 }
 
-# Sector-specific mandatory keywords
-SECTOR_KEYWORDS = {
-    "fintech": ["FCA", "credit scoring", "fraud detection", "AML", "financial", "prudential"],
-    "healthtech": ["MHRA", "SaMD", "clinical", "patient safety", "diagnostic", "medical device"],
-    "saas": ["data governance", "EU customer", "B2B", "API", "service level"],
-    "legaltech": ["SRA", "legal privilege", "confidentiality", "COLP", "COFA", "solicitors"],
-    "insurtech": ["FCA", "PRA", "underwriting", "claims", "insurance", "policyholder"]
-}
+def print_banner():
+    print(f"""
+{Colors.OKCYAN}{Colors.BOLD}
+╔══════════════════════════════════════════════════════════════╗
+║     ISO 42001:2023 — POLICY VALIDATOR & COMPLIANCE CHECK    ║
+║              Open Source Compliance Architecture               ║
+╚══════════════════════════════════════════════════════════════╝
+{Colors.ENDC}""")
 
+def print_cta(missing_count, sector):
+    """Print conversion CTA for missing policy clauses."""
+    cta_box = f"""
+{Colors.WARNING}{Colors.BOLD}
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  ⚠️  {missing_count} MISSING ISO 42001 CLAUSES DETECTED IN [{sector.upper()}] POLICY           ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  Full policy suite with evidence structures available via async delivery.    ║
+║                                                                              ║
+║  📧  Email: compliance.architect@protonmail.com                              ║
+║  📌  Subject: IMPLEMENT-[YourCompany]-[{sector.upper()}]                              ║
+║                                                                              ║
+║  💷  Flat fee: £2,000  |  No Zoom. No Calendly. No meetings.                ║
+║                                                                              ║
+║  📦  What you get:                                                           ║
+║      • Custom AIMS architecture mapped to your AI systems                    ║
+║      • Sector-specific policy suite (tailored, not templated)                ║
+║      • Pre-mapped risk register with evidence structures                     ║
+║      • Internal audit plan + certification body prep                         ║
+║                                                                              ║
+║  🚀  Delivered in 7 days via private GitHub repo + email.                   ║
+║      Master Services Agreement + Mutual NDA included.                        ║
+║                                                                              ║
+║  ⏰  Only 1 slot remaining for June 2026 delivery.                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+{Colors.ENDC}"""
+    print(cta_box)
 
-def validate_policy(file_path, sector=None):
-    """Validate a policy markdown file against ISO 42001 requirements."""
-    path = Path(file_path)
-
-    if not path.exists():
-        print(f"[ERROR] File not found: {file_path}")
+def load_policy_file(filepath):
+    """Load and read policy file content."""
+    if not os.path.exists(filepath):
+        print(f"{Colors.FAIL}[ERROR]{Colors.ENDC} Policy file not found: {filepath}")
+        print(f"{Colors.OKBLUE}[INFO]{Colors.ENDC} Run: python policy-validator.py --help")
         sys.exit(1)
 
-    content = path.read_text(encoding="utf-8").lower()
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    return content.lower()
 
-    results = []
-    total_controls = len(REQUIRED_SECTIONS)
-    compliant_controls = 0
+def validate_policy(content, sector):
+    """Check policy for missing required clauses."""
+    requirements = POLICY_REQUIREMENTS.get(sector, POLICY_REQUIREMENTS["general"])
+    missing = []
+    found = []
 
-    for control_id, keywords in REQUIRED_SECTIONS.items():
-        found = []
-        missing = []
+    for i, clause in enumerate(requirements["required_clauses"]):
+        keyword = requirements["keywords"][i] if i < len(requirements["keywords"]) else clause.lower()
 
-        for keyword in keywords:
-            if keyword.lower() in content:
-                found.append(keyword)
-            else:
-                missing.append(keyword)
-
-        coverage = len(found) / len(keywords)
-
-        if coverage >= 0.7:
-            status = "PASS"
-            compliant_controls += 1
-        elif coverage >= 0.4:
-            status = "WARNING"
+        # Check if keyword exists in policy content
+        if keyword in content:
+            found.append(clause)
         else:
-            status = "FAIL"
+            missing.append({
+                "clause": clause,
+                "keyword": keyword,
+                "severity": "HIGH" if i < 3 else "MEDIUM"  # First 3 are critical
+            })
 
-        results.append({
-            "control": control_id,
-            "status": status,
-            "coverage": int(coverage * 100),
-            "found": found,
-            "missing": missing
-        })
+    return found, missing
 
-    # Sector-specific checks
-    sector_warnings = []
-    if sector and sector in SECTOR_KEYWORDS:
-        for keyword in SECTOR_KEYWORDS[sector]:
-            if keyword.lower() not in content:
-                sector_warnings.append(keyword)
+def print_results(found, missing, sector, filepath):
+    """Print formatted validation results."""
+    total = len(found) + len(missing)
 
-    # Overall score
-    overall = int((compliant_controls / total_controls) * 100)
+    print(f"{Colors.BOLD}📄 Policy File:{Colors.ENDC} {filepath}")
+    print(f"{Colors.BOLD}🏭 Sector:{Colors.ENDC} {sector.upper()}")
+    print(f"{Colors.BOLD}📊 Total Clauses Checked:{Colors.ENDC} {total}\n")
 
-    # Print report
-    print("=" * 60)
-    print(f"ISO 42001 POLICY VALIDATION REPORT")
-    print("=" * 60)
-    print(f"File: {path.name}")
-    print(f"Sector: {sector.upper() if sector else 'Not specified'}")
-    print(f"Overall Score: {overall}%")
-    print(f"Controls Passed: {compliant_controls}/{total_controls}")
-    print("=" * 60)
+    if not missing:
+        print(f"{Colors.OKGREEN}{Colors.BOLD}✅ ALL CLAUSES PRESENT — Policy appears comprehensive!{Colors.ENDC}\n")
+        print(f"{Colors.OKCYAN}Next steps:{Colors.ENDC}")
+        print(f"  1. Run gap-analyzer.py to check implementation evidence")
+        print(f"  2. Prepare for certification body pre-assessment\n")
+        return
 
-    for r in results:
-        color = "🟢" if r["status"] == "PASS" else "🟡" if r["status"] == "WARNING" else "🔴"
-        print(f"\n{color} {r['control']} — {r['status']} ({r['coverage']}% coverage)")
+    high_count = sum(1 for m in missing if m["severity"] == "HIGH")
 
-        if r["missing"]:
-            print(f"   Missing keywords: {', '.join(r['missing'])}")
+    print(f"{Colors.FAIL}{Colors.BOLD}❌ VALIDATION RESULTS{Colors.ENDC}")
+    print(f"{Colors.FAIL}{Colors.BOLD}{'─' * 60}{Colors.ENDC}")
+    print(f"  Clauses Found:    {len(found)}/{total}")
+    print(f"  Clauses Missing:  {len(missing)}/{total}")
+    print(f"  Critical Gaps:    {high_count}")
+    print(f"{Colors.FAIL}{Colors.BOLD}{'─' * 60}{Colors.ENDC}\n")
 
-    if sector_warnings:
-        print(f"\n⚠️  SECTOR-SPECIFIC WARNINGS ({sector.upper()}):")
-        for w in sector_warnings:
-            print(f"   • Missing: '{w}'")
+    print(f"{Colors.BOLD}✅ Found Clauses:{Colors.ENDC}")
+    for clause in found:
+        print(f"  {Colors.OKGREEN}✓{Colors.ENDC} {clause}")
 
-    print("\n" + "=" * 60)
+    print(f"\n{Colors.BOLD}❌ Missing Clauses:{Colors.ENDC}")
+    for gap in missing:
+        color = Colors.FAIL if gap["severity"] == "HIGH" else Colors.WARNING
+        icon = "🔴" if gap["severity"] == "HIGH" else "🟡"
+        print(f"  {color}{icon} [{gap['severity']}] {gap['clause']}{Colors.ENDC}")
+        print(f"      Expected keyword: \"{gap['keyword']}\"")
 
-    if overall >= 80:
-        print("✅ POLICY IS AUDIT-READY")
-    elif overall >= 60:
-        print("⚠️  POLICY NEEDS IMPROVEMENT — Address missing controls before audit")
-    else:
-        print("❌ POLICY HAS CRITICAL GAPS — Major revision required")
+    print()
+    return len(missing)
 
-    print("=" * 60)
+def export_validation_report(found, missing, sector, filepath, output_file):
+    """Export validation report to text file."""
+    with open(output_file, 'w') as f:
+        f.write(f"ISO 42001 Policy Validation Report\n")
+        f.write(f"Generated: {datetime.now().isoformat()}\n")
+        f.write(f"Sector: {sector}\n")
+        f.write(f"File: {filepath}\n")
+        f.write(f"─" * 60 + "\n\n")
 
-    return overall
+        f.write(f"CLAUSES FOUND: {len(found)}\n")
+        for clause in found:
+            f.write(f"  [PASS] {clause}\n")
 
+        f.write(f"\nCLAUSES MISSING: {len(missing)}\n")
+        for gap in missing:
+            f.write(f"  [{gap['severity']}] {gap['clause']}\n")
+            f.write(f"    Expected: {gap['keyword']}\n")
+
+        if missing:
+            f.write(f"\n\nRECOMMENDATION:\n")
+            f.write(f"This policy requires {len(missing)} additional clauses to meet\n")
+            f.write(f"ISO 42001:2023 requirements for {sector} sector.\n")
+            f.write(f"Consider professional policy drafting services.\n")
+
+    print(f"{Colors.OKGREEN}[SAVED]{Colors.ENDC} Validation report exported to: {output_file}\n")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="ISO 42001 Policy Validator — Check policy documents for compliance gaps"
+        description="ISO 42001 Policy Validator — Check for missing compliance clauses",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python policy-validator.py --policy docs/ai-policy-fintech.md --sector fintech
+  python policy-validator.py --policy policy.md --sector healthtech --export report.txt
+  python policy-validator.py --policy policy.md --sector saas --no-cta
+        """
     )
     parser.add_argument(
-        "--input",
-        "-i",
+        "--policy",
         required=True,
-        help="Path to the policy markdown file to validate"
+        help="Path to your AI policy markdown file to validate"
     )
     parser.add_argument(
         "--sector",
-        "-s",
-        choices=["fintech", "healthtech", "saas", "legaltech", "insurtech"],
-        help="Sector for additional keyword validation"
+        choices=["fintech", "healthtech", "saas", "legaltech", "insurtech", "general"],
+        default="general",
+        help="Industry sector for targeted validation (default: general)"
+    )
+    parser.add_argument(
+        "--export",
+        metavar="FILE",
+        help="Export validation report to text file"
+    )
+    parser.add_argument(
+        "--no-cta",
+        action="store_true",
+        help="Suppress the implementation services CTA (for internal use)"
     )
 
     args = parser.parse_args()
-    score = validate_policy(args.input, args.sector)
 
-    # Exit with error code if critical
-    if score < 60:
-        sys.exit(1)
+    print_banner()
 
+    # Load policy
+    content = load_policy_file(args.policy)
+
+    # Validate
+    found, missing = validate_policy(content, args.sector)
+
+    # Print results
+    missing_count = print_results(found, missing, args.sector, args.policy)
+
+    # Export if requested
+    if args.export:
+        export_validation_report(found, missing, args.sector, args.policy, args.export)
+
+    # Print CTA unless suppressed
+    if not args.no_cta and missing:
+        print_cta(missing_count, args.sector)
+    elif not missing and not args.no_cta:
+        # Soft CTA for audit prep
+        print(f"""
+{Colors.OKGREEN}{Colors.BOLD}
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  ✅ POLICY VALIDATION PASSED                                                 ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  Policy looks solid. Want a certification-ready review before audit?         ║
+║                                                                              ║
+║  📧  Email: compliance.architect@protonmail.com                              ║
+║  📌  Subject: AUDIT-PREP-[YourCompany]-[{args.sector.upper()}]                       ║
+║                                                                              ║
+║  💷  Pre-audit policy review + evidence check: £500 flat fee                ║
+║      → 3-day async review with annotated policy + gap fix list               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+{Colors.ENDC}""")
+
+    # Exit code: 1 if missing clauses found
+    sys.exit(1 if missing else 0)
 
 if __name__ == "__main__":
     main()
