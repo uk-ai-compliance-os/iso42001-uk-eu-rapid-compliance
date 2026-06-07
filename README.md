@@ -1,4 +1,4 @@
-<div align="center">
+</div>
 
 # 🛡️ ISO 42001 Rapid Implementation Toolkit
 
