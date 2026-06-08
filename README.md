@@ -1,3 +1,4 @@
+
 # 🛡️ ISO 42001 Rapid Implementation Toolkit
 
 **Open-source compliance architecture for UK & EU AI companies building audit-ready AI governance — without the six-figure consultancy bill.**
@@ -31,6 +32,12 @@
 | **3. Fix** | Email for 7-day async delivery | **£2,000 flat fee** |
 
 > Every CLI tool ends with a personalised offer. Every template shows a path from "free audit" to "audit-ready deliverables."
+
+---
+
+## 🏥 Live Implementation Case Study
+
+- **[UK Fintech — AI Credit Scoring Case Study](examples/fintech-credit-scoring-case-study.md)** — See how a London-based startup secured a £150k contract by becoming audit-ready in just 7 days without a single meeting.
 
 ---
 
