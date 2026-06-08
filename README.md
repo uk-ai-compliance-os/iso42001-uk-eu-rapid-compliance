@@ -37,7 +37,7 @@
 
 ## 🏥 Live Implementation Case Study
 
-- **[UK Fintech — AI Credit Scoring Case Study](examples/fintech-credit-scoring-case-study.md)** — See how a London-based startup secured a £150k contract by becoming audit-ready in just 7 days without a single meeting.
+- **[UK Fintech — AI Credit Scoring Case Study](/fintech-credit-scoring-case-study.md)** — See how a London-based startup secured a £150k contract by becoming audit-ready in just 7 days without a single meeting.
 
 ---
 
